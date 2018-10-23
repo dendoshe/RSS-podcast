@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.listView1 = new System.Windows.Forms.ListView();
+            this.cAvsnitt = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cNamn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cFrekvens = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cKategori = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -41,10 +45,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.cAvsnitt = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cNamn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cFrekvens = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cKategori = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -66,6 +66,26 @@
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // cAvsnitt
+            // 
+            this.cAvsnitt.Text = "Avsnitt";
+            this.cAvsnitt.Width = 92;
+            // 
+            // cNamn
+            // 
+            this.cNamn.Text = "Namn";
+            this.cNamn.Width = 149;
+            // 
+            // cFrekvens
+            // 
+            this.cFrekvens.Text = "Frekvens";
+            this.cFrekvens.Width = 125;
+            // 
+            // cKategori
+            // 
+            this.cKategori.Text = "Kategori";
+            this.cKategori.Width = 123;
             // 
             // textBox1
             // 
@@ -133,9 +153,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(463, 292);
+            this.button3.Location = new System.Drawing.Point(774, 292);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 35);
+            this.button3.Size = new System.Drawing.Size(93, 35);
             this.button3.TabIndex = 9;
             this.button3.Text = "Ta bort";
             this.button3.UseVisualStyleBackColor = true;
@@ -166,26 +186,6 @@
             this.button6.TabIndex = 12;
             this.button6.Text = "Ta bort";
             this.button6.UseVisualStyleBackColor = true;
-            // 
-            // cAvsnitt
-            // 
-            this.cAvsnitt.Text = "Avsnitt";
-            this.cAvsnitt.Width = 92;
-            // 
-            // cNamn
-            // 
-            this.cNamn.Text = "Namn";
-            this.cNamn.Width = 149;
-            // 
-            // cFrekvens
-            // 
-            this.cFrekvens.Text = "Frekvens";
-            this.cFrekvens.Width = 125;
-            // 
-            // cKategori
-            // 
-            this.cKategori.Text = "Kategori";
-            this.cKategori.Width = 123;
             // 
             // label1
             // 
