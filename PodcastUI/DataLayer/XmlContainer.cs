@@ -12,21 +12,22 @@ using System.Xml.Serialization;
 namespace DataLayer {
     public class XmlContainer {
 
-        public void addPodcastInfo(string url, int frequency, string category, string podcastholder) { //steg 1 och även här det avslutas . Steg 1 sätter in värder som jag lägger till xml.filen
-            var podcast = new Podcast {
+        public void addFeedInfo(string url, int frequency, string category, string feedholder) { //steg 1 och även här det avslutas . Steg 1 sätter in värder som jag lägger till xml.filen
+            var feed = new Feed
+            {
 
-                //Title = "", ifall vi vill namnge när vi lägger till en podcast
+                //Title = "", ifall vi vill namnge när vi lägger till en feed
                 Updateintervall = frequency,
-                Path = podcastholder,
+                Path = feedholder,
                 Episodes = ReadEpisodesFromRssLink(url)
             };
 
-            save(podcast);
+            save(feed);
 
 
         }
 
-        public List<Episode> ReadEpisodesFromRssLink(string rssLink) // steg 2, detta hämtar namn på enskilda podcastavsnitt
+        public List<Episode> ReadEpisodesFromRssLink(string rssLink) // steg 2, detta hämtar namn på enskilda feeds
           {
 
             var reader = XmlReader.Create(rssLink);
@@ -46,12 +47,12 @@ namespace DataLayer {
 
 
 
-        public void save(Podcast podcastObject) //steg 3 Det här är en metod för att spara Xml-filen. 
+        public void save(Feed feedObject) //steg 3 Det här är en metod för att spara Xml-filen. 
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(Podcast));
-            using (StreamWriter writer = new StreamWriter(podcastObject.Path)) {
+            XmlSerializer serializer = new XmlSerializer(typeof(Feed));
+            using (StreamWriter writer = new StreamWriter(feedObject.Path)) {
 
-                serializer.Serialize(writer, podcastObject);
+                serializer.Serialize(writer, feedObject);
 
             }
 
@@ -64,11 +65,11 @@ namespace DataLayer {
 
        
 
-    //public List<Podcast> Getpostcastfiles (string podcastpath) // Det här har inget med XML-filen. Utan är en metod som jag anropar för att fulla min lista med podcast
+    //public List<Feed> Getpostcastfiles (string feedpath) // Det här har inget med XML-filen. Utan är en metod som jag anropar för att fulla min lista med podcast
     //    {
-    //        string[] files = Directory.GetFiles(podcastpath); 
+    //        string[] files = Directory.GetFiles(feedpath); 
 
-    //        List<Podcast> podcastList = new List<Podcast>();
+    //        List<Feed> feedList = new List<Feed>();
 
     //        foreach (var item in files) 
     //        {
@@ -76,7 +77,7 @@ namespace DataLayer {
 
     //        }
 
-    //        return podcastList;
+    //        return feedList;
 
     //    }
 

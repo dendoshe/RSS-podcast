@@ -2,7 +2,7 @@
 
 
 namespace PodcastUI.Models {
-    public class Podcast {
+    public class Feed {
         //Ordningen på noden bestämmer hur den kommer visas i XML-filen.
         //public string Title { get; set; } //Här har vi skapat Title till podcasten, detta är en node. Behövs bara om vi vill namnge podcasten
         public string Path { get; set; } // Här har vi skapat Path och den kommer visa vart filen ligger på datorn, detta är en node.
