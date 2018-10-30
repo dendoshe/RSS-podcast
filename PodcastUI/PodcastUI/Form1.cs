@@ -48,8 +48,13 @@ namespace PodcastUI {
         //}
 
         private void button5_Click(object sender, EventArgs e) {
+<<<<<<< HEAD
             var path = Directory.GetCurrentDirectory() + @"\" + "favoriter"+ @"\" + "blomma"+ ".xml";
             _xmlcontainer.addFeedInfo("http://tackforkaffet.libsyn.com/rss",1000,"favoriter",
+=======
+            var path = Directory.GetCurrentDirectory() + @"\" + "Minafavoriter"+ @"\" + "Flower"+ ".xml";
+            _xmlcontainer.addFeedInfo("http://tackforkaffet.libsyn.com/rss",1000,"Minafavoriter",
+>>>>>>> 33db0e67ef9c3ca362c136af7c9f6f5a4c5a3304
                 path);
         }
 

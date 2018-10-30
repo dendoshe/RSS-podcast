@@ -157,7 +157,15 @@ namespace PodcastUI
             // 
             // button3
             // 
+<<<<<<< HEAD
             this.button3.Location = new System.Drawing.Point(454, 292);
+=======
+
+            this.button3.Location = new System.Drawing.Point(454, 292);
+
+            this.button3.Location = new System.Drawing.Point(472, 292);
+
+>>>>>>> 33db0e67ef9c3ca362c136af7c9f6f5a4c5a3304
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(93, 35);
             this.button3.TabIndex = 9;
