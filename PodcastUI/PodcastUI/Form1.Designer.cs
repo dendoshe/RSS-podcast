@@ -38,11 +38,11 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.listView2 = new System.Windows.Forms.ListView();
             this.listView3 = new System.Windows.Forms.ListView();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.skrivKategori = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.nykategori = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -128,12 +128,12 @@
             this.listView3.TabIndex = 5;
             this.listView3.UseCompatibleStateImageBehavior = false;
             // 
-            // textBox2
+            // skrivKategori
             // 
-            this.textBox2.Location = new System.Drawing.Point(624, 196);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(339, 26);
-            this.textBox2.TabIndex = 6;
+            this.skrivKategori.Location = new System.Drawing.Point(624, 196);
+            this.skrivKategori.Name = "skrivKategori";
+            this.skrivKategori.Size = new System.Drawing.Size(339, 26);
+            this.skrivKategori.TabIndex = 6;
             // 
             // button1
             // 
@@ -155,25 +155,21 @@
             // 
             // button3
             // 
-
-            this.button3.Location = new System.Drawing.Point(454, 292);
-
             this.button3.Location = new System.Drawing.Point(472, 292);
-
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(93, 35);
             this.button3.TabIndex = 9;
             this.button3.Text = "Ta bort";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // nykategori
             // 
-            this.button4.Location = new System.Drawing.Point(633, 237);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 35);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "Ny...";
-            this.button4.UseVisualStyleBackColor = true;
+            this.nykategori.Location = new System.Drawing.Point(633, 237);
+            this.nykategori.Name = "nykategori";
+            this.nykategori.Size = new System.Drawing.Size(75, 35);
+            this.nykategori.TabIndex = 10;
+            this.nykategori.Text = "Ny...";
+            this.nykategori.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
@@ -262,11 +258,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.nykategori);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.skrivKategori);
             this.Controls.Add(this.listView3);
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.comboBox2);
@@ -292,11 +288,11 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.ListView listView3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox skrivKategori;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button nykategori;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label1;
