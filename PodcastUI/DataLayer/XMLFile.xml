@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<rss version="2.0">
+
+  <channel>
+    <title>Podcast feeds</title>
+    <link>https://brapodcast.se</link>
+    <description>En applikation som samlar dina favoritpodcasts på en plats!</description>
+    <item>
+      <title>Alice och Bianca</title>
+      <path>https://brapodcast.se/podcast/1316796982/alice-och-bianca-har-du-sagt-a-far-du-saga-b</path>
+      <updateinterval>5</updateinterval>
+      <category>Humor</category>
+    </item>
+  </channel>
+
+</rss>

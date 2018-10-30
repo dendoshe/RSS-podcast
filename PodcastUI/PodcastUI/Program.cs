@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataLayer;
+using PodcastUI.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,5 +20,20 @@ namespace PodcastUI
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
+
+            static public void load()
+        {
+            XmlContainer visaFeed = new XmlContainer();
+
+            var visa = visaFeed.ReadEpisodesFromRssLink("https://cdn.radioplay.se/data/rss/507.xml");
+
+
+
+
+            Console.WriteLine(visa);
+
+        }
+
+
     }
 }

@@ -38,7 +38,7 @@ namespace DataLayer {
             foreach (var item in syndicationFeed.Items) {
                 var episode = new Episode(); //skapat ett object av en episode som lever en gång i foreach-loopen
                 episode.Title = item.Title.Text; //Lägger till Title på avsnitte från SyndicationFeed
-                episodeList.Add(episode); //Lägger till den enskilda objecten i episodeList
+                episodeList.Add(episode); //Lägger till den enskilda objekten i episodeList
 
             }
 

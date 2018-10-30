@@ -8,8 +8,24 @@ namespace PodcastUI.Models {
         public string Path { get; set; } // Här har vi skapat Path och den kommer visa vart filen ligger på datorn, detta är en node.
         public int Updateintervall { get; set; } // Här har vi skapat en node som innehåller updateintervall.
         public List<Episode> Episodes { get; set; } // Här har vi skapat en lista med Episode obejct. Den kommer bestå av avsnitt. Detta är en node.
-      
+
+
+        
+
+
     }
+
+   
+
+
+
+
+
+
+
+
+
+
 
     //public class PodcastList : List<Podcast> {
     //    public List<Podcast> GetOrdered() {

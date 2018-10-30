@@ -40,13 +40,16 @@ namespace PodcastUI {
 
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e) {
+        //private void listView1_SelectedIndexChanged(object sender, EventArgs e) {
+        //    XmlContainer nyFeed = new XmlContainer();
 
-        }
+        //    nyFeed.addFeedInfo("https://www.radioplay.se/podcast/mellan-himmel-och-jord?episode-id=38607", 4, "humor", "https://cdn.radioplay.se/data/rss/507.xml");
+
+        //}
 
         private void button5_Click(object sender, EventArgs e) {
             var path = Directory.GetCurrentDirectory() + @"\" + "favoriter"+ @"\" + "blomma"+ ".xml";
-            _xmlcontainer.addPodcastInfo("http://tackforkaffet.libsyn.com/rss",1000,"favoriter",
+            _xmlcontainer.addFeedInfo("http://tackforkaffet.libsyn.com/rss",1000,"favoriter",
                 path);
         }
 
