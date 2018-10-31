@@ -108,7 +108,7 @@ namespace PodcastUI {
            
            var path = Directory.GetCurrentDirectory() + @"\" + categoryCb.Text + @"\" + tx_podcastName.Text + ".xml";
             _xmlcontainer.AddFeedInfo(tx_rssUrl.Text, newUpdateInterval, path);
-            
+
         }
     }
 }

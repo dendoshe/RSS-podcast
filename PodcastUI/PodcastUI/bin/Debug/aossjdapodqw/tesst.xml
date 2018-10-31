@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Podcast xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Path>C:\Users\yasni\OneDrive\Dokument\GitHub\RSS-podcast\PodcastUI\PodcastUI\bin\Debug\favoriter\blomma.xml</Path>
+<Feed xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Path>C:\Users\yasni\OneDrive\Dokument\GitHub\RSS-podcast\PodcastUI\PodcastUI\bin\Debug\aossjdapodqw\tesst.xml</Path>
   <Updateintervall>1000</Updateintervall>
   <Episodes>
+    <Episode>
+      <Title>TFK.399 – Bilfärden.</Title>
+    </Episode>
     <Episode>
       <Title>TFK.398 – Good Deeds.</Title>
     </Episode>
@@ -1156,4 +1159,4 @@
       <Title>TFK.21 – Skärgårdsidyllen.</Title>
     </Episode>
   </Episodes>
-</Podcast>
+</Feed>
