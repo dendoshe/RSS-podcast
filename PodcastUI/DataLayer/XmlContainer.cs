@@ -12,13 +12,17 @@ using System.Xml.Serialization;
 namespace DataLayer {
     public class XmlContainer {
 
-        public void addFeedInfo(string url, int frequency, string category, string feedholder) { //steg 1 och även här det avslutas . Steg 1 sätter in värder som jag lägger till xml.filen
+        private XmlSerializer _xmlSerializer = new XmlSerializer(typeof(Feed));
+
+        
+
+        public void AddFeedInfo(string url, int frequency, string localPath) { //steg 1 och även här det avslutas . Steg 1 sätter in värder som jag lägger till xml.filen
             var feed = new Feed
             {
 
-                //Title = "", ifall vi vill namnge när vi lägger till en feed
+                //Title = feedholder //, ifall vi vill namnge när vi lägger till en feed
                 Updateintervall = frequency,
-                Path = feedholder,
+                Path = localPath,
                 Episodes = ReadEpisodesFromRssLink(url)
             };
 
@@ -27,8 +31,9 @@ namespace DataLayer {
 
         }
 
+    
         public List<Episode> ReadEpisodesFromRssLink(string rssLink) // steg 2, detta hämtar namn på enskilda feeds
-          {
+        {
 
             var reader = XmlReader.Create(rssLink);
             var syndicationFeed = SyndicationFeed.Load(reader);
@@ -53,37 +58,42 @@ namespace DataLayer {
             using (StreamWriter writer = new StreamWriter(feedObject.Path)) {
 
                 serializer.Serialize(writer, feedObject);
-
+                writer.Close();
             }
 
         }
 
+        public List<Feed> GetAllPodcastsInCategory(string categoryPath) {
+            var files = Directory.GetFiles(categoryPath);
+            List<Feed> feeds = new List<Feed>();
+
+            foreach (var file in files) {
+
+                var info = new FileInfo(file);
+
+                using (var reader = new StreamReader(file)) {
+                    feeds.Add((Feed)_xmlSerializer.Deserialize(reader));
+                    reader.Close();
+                }
+
+            }
+            return feeds;
+        }
+
+        public List<Category> GetAllCatergories() {
+            var path = Directory.GetCurrentDirectory();
+            var folders = Directory.GetDirectories(path);
+            List<Category> categories = new List<Category>();
+            foreach (var folder in folders) {
+
+                var info = new DirectoryInfo(folder);
+                categories.Add(new Category() { Title = info.Name, Path = folder, PodcastList = GetAllPodcastsInCategory(folder) });
+
+            }
+            return categories;
+
+        }
 
 
-
-
-
-       
-
-    //public List<Feed> Getpostcastfiles (string feedpath) // Det här har inget med XML-filen. Utan är en metod som jag anropar för att fulla min lista med podcast
-    //    {
-    //        string[] files = Directory.GetFiles(feedpath); 
-
-    //        List<Feed> feedList = new List<Feed>();
-
-    //        foreach (var item in files) 
-    //        {
-    //            FileInfo fileinfo = new FileInfo(item);
-
-    //        }
-
-    //        return feedList;
-
-    //    }
-
-    
-      
-        
-        
-    }
+     }
 }

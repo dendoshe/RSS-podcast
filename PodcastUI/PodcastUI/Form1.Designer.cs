@@ -33,24 +33,25 @@
             this.cNamn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cFrekvens = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cKategori = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.tx_rssUrl = new System.Windows.Forms.TextBox();
+            this.cb_updateinterval = new System.Windows.Forms.ComboBox();
+            this.categoryCb = new System.Windows.Forms.ComboBox();
             this.listView2 = new System.Windows.Forms.ListView();
-            this.listView3 = new System.Windows.Forms.ListView();
             this.skrivKategori = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.nykategori = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.saveBtn = new System.Windows.Forms.Button();
+            this.DeleteBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.ListCategories = new System.Windows.Forms.ListBox();
+            this.tx_podcastName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listView1
@@ -88,29 +89,29 @@
             this.cKategori.Text = "Kategori";
             this.cKategori.Width = 123;
             // 
-            // textBox1
+            // tx_rssUrl
             // 
-            this.textBox1.Location = new System.Drawing.Point(26, 260);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(194, 26);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.tx_rssUrl.Location = new System.Drawing.Point(26, 260);
+            this.tx_rssUrl.Name = "tx_rssUrl";
+            this.tx_rssUrl.Size = new System.Drawing.Size(194, 26);
+            this.tx_rssUrl.TabIndex = 1;
+            this.tx_rssUrl.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // comboBox1
+            // cb_updateinterval
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(253, 257);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(169, 28);
-            this.comboBox1.TabIndex = 2;
+            this.cb_updateinterval.FormattingEnabled = true;
+            this.cb_updateinterval.Location = new System.Drawing.Point(253, 257);
+            this.cb_updateinterval.Name = "cb_updateinterval";
+            this.cb_updateinterval.Size = new System.Drawing.Size(169, 28);
+            this.cb_updateinterval.TabIndex = 2;
             // 
-            // comboBox2
+            // categoryCb
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(454, 257);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 28);
-            this.comboBox2.TabIndex = 3;
+            this.categoryCb.FormattingEnabled = true;
+            this.categoryCb.Location = new System.Drawing.Point(454, 257);
+            this.categoryCb.Name = "categoryCb";
+            this.categoryCb.Size = new System.Drawing.Size(121, 28);
+            this.categoryCb.TabIndex = 3;
             // 
             // listView2
             // 
@@ -119,14 +120,6 @@
             this.listView2.Size = new System.Drawing.Size(497, 97);
             this.listView2.TabIndex = 4;
             this.listView2.UseCompatibleStateImageBehavior = false;
-            // 
-            // listView3
-            // 
-            this.listView3.Location = new System.Drawing.Point(624, 38);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(339, 152);
-            this.listView3.TabIndex = 5;
-            this.listView3.UseCompatibleStateImageBehavior = false;
             // 
             // skrivKategori
             // 
@@ -152,6 +145,7 @@
             this.button2.TabIndex = 8;
             this.button2.Text = "Spara";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -170,25 +164,27 @@
             this.nykategori.TabIndex = 10;
             this.nykategori.Text = "Ny...";
             this.nykategori.UseVisualStyleBackColor = true;
+            this.nykategori.Click += new System.EventHandler(this.nykategori_Click);
             // 
-            // button5
+            // saveBtn
             // 
-            this.button5.Location = new System.Drawing.Point(758, 236);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 35);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "Spara";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.saveBtn.Location = new System.Drawing.Point(758, 236);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(75, 35);
+            this.saveBtn.TabIndex = 11;
+            this.saveBtn.Text = "Spara";
+            this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button6
+            // DeleteBtn
             // 
-            this.button6.Location = new System.Drawing.Point(888, 236);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 36);
-            this.button6.TabIndex = 12;
-            this.button6.Text = "Ta bort";
-            this.button6.UseVisualStyleBackColor = true;
+            this.DeleteBtn.Location = new System.Drawing.Point(888, 236);
+            this.DeleteBtn.Name = "DeleteBtn";
+            this.DeleteBtn.Size = new System.Drawing.Size(75, 36);
+            this.DeleteBtn.TabIndex = 12;
+            this.DeleteBtn.Text = "Ta bort";
+            this.DeleteBtn.UseVisualStyleBackColor = true;
+            this.DeleteBtn.Click += new System.EventHandler(this.button6_Click);
             // 
             // label1
             // 
@@ -245,29 +241,47 @@
             this.label6.TabIndex = 18;
             this.label6.Text = "Avsnitt";
             // 
+            // ListCategories
+            // 
+            this.ListCategories.FormattingEnabled = true;
+            this.ListCategories.ItemHeight = 20;
+            this.ListCategories.Location = new System.Drawing.Point(633, 35);
+            this.ListCategories.Name = "ListCategories";
+            this.ListCategories.Size = new System.Drawing.Size(362, 144);
+            this.ListCategories.TabIndex = 19;
+            this.ListCategories.SelectedIndexChanged += new System.EventHandler(this.ListCategories_SelectedIndexChanged);
+            // 
+            // tx_podcastName
+            // 
+            this.tx_podcastName.Location = new System.Drawing.Point(26, 292);
+            this.tx_podcastName.Name = "tx_podcastName";
+            this.tx_podcastName.Size = new System.Drawing.Size(194, 26);
+            this.tx_podcastName.TabIndex = 20;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1094, 498);
+            this.Controls.Add(this.tx_podcastName);
+            this.Controls.Add(this.ListCategories);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.DeleteBtn);
+            this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.nykategori);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.skrivKategori);
-            this.Controls.Add(this.listView3);
             this.Controls.Add(this.listView2);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.categoryCb);
+            this.Controls.Add(this.cb_updateinterval);
+            this.Controls.Add(this.tx_rssUrl);
             this.Controls.Add(this.listView1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -283,24 +297,25 @@
         private System.Windows.Forms.ColumnHeader cNamn;
         private System.Windows.Forms.ColumnHeader cFrekvens;
         private System.Windows.Forms.ColumnHeader cKategori;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox tx_rssUrl;
+        private System.Windows.Forms.ComboBox cb_updateinterval;
+        private System.Windows.Forms.ComboBox categoryCb;
         private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.ListView listView3;
         private System.Windows.Forms.TextBox skrivKategori;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button nykategori;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button saveBtn;
+        private System.Windows.Forms.Button DeleteBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ListBox ListCategories;
+        private System.Windows.Forms.TextBox tx_podcastName;
     }
 }
 
