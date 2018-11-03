@@ -9,6 +9,23 @@ namespace LogicLayer {
         private XmlContainer xmlcontainer = new XmlContainer(); //Här har vi skapat ett av XmlConatiner som ligger i DataLayer. Den körs en gång vid uppstart.
 
 
+
+        public void CreatenewDir(string folder) {
+            var dirName = folder;
+
+            if (Directory.Exists(dirName)) {
+
+                MessageBox.Show("Dir: '" + dirName + "' exists");
+            } else {
+
+                Directory.CreateDirectory(dirName);
+                MessageBox.Show("Created dir: '" + dirName + " '");
+
+                  //flytta till logic
+
+            }
+        }
+
         public void DeleteCategori(string folder) 
         {
 

@@ -16,14 +16,15 @@ namespace DataLayer {
 
         
 
-        public void AddFeedInfo(string url, int frequency, string localPath) { //steg 1 och även här det avslutas . Steg 1 sätter in värder som jag lägger till xml.filen
+        public async Task  AddFeedInfo(string url, int frequency, string localPath, string podcastName, string inputCategory) { //steg 1 och även här det avslutas . Steg 1 sätter in värder som jag lägger till xml.filen
             var feed = new Feed
             {
 
-                //Title = feedholder //, ifall vi vill namnge när vi lägger till en feed
+                Title = podcastName, //, ifall vi vill namnge när vi lägger till en feed
+                Category = inputCategory,
                 Updateintervall = frequency,
                 Path = localPath,
-                Episodes = ReadEpisodesFromRssLink(url)
+                Episodes = await ReadEpisodesFromRssLink(url)
             };
 
             save(feed);
@@ -32,17 +33,26 @@ namespace DataLayer {
         }
 
     
-        public List<Episode> ReadEpisodesFromRssLink(string rssLink) // steg 2, detta hämtar namn på enskilda feeds
+        public async Task<List<Episode>> ReadEpisodesFromRssLink(string rssLink) // steg 2, detta hämtar namn på enskilda feeds
         {
 
-            var reader = XmlReader.Create(rssLink);
-            var syndicationFeed = SyndicationFeed.Load(reader);
+            //await Task.Factory.StartNew(() => 
+            //{
+            //    using (XmlReader reader = XmlReader.Create(rssLink)) 
+            //    {
+            //        SyndicationFeed feed = SyndicationFeed.Load(reader);
+            //    }
 
-            List<Episode> episodeList = new List<Episode>();
 
-            foreach (var item in syndicationFeed.Items) {
+            //});
+            XmlReader reader = XmlReader.Create(rssLink);
+            SyndicationFeed feed = SyndicationFeed.Load(reader);
+            List <Episode> episodeList = new List<Episode>();
+
+            foreach (var item in feed.Items) {
                 var episode = new Episode(); //skapat ett object av en episode som lever en gång i foreach-loopen
                 episode.Title = item.Title.Text; //Lägger till Title på avsnitte från SyndicationFeed
+                episode.Description = item.Summary.Text;
                 episodeList.Add(episode); //Lägger till den enskilda objecten i episodeList
 
             }
@@ -77,6 +87,38 @@ namespace DataLayer {
                 }
 
             }
+            return feeds;
+        }
+
+        public List<Feed> GetAllPoscastInCategory() {
+            var getCatergories = GetAllCatergories();
+
+            List<Feed> feeds = new List<Feed>();
+            //foreach (var item in getCatergories) {
+
+                var path = Directory.GetCurrentDirectory();
+                var foldersTwo = Directory.GetDirectories(path);
+                
+
+                foreach (var anitem in getCatergories) {
+
+                    var getfiles = Directory.GetFiles(anitem.Title);
+                    var info = new FileInfo(anitem.Title);
+                    foreach (var finalItems in getfiles) {
+
+                        using (var reader = new StreamReader(finalItems)) 
+                        {
+                            feeds.Add((Feed)_xmlSerializer.Deserialize(reader));
+                            reader.Close();
+                           
+                            
+                        }
+                      
+
+                    
+                    }
+                }
+           // }
             return feeds;
         }
 
