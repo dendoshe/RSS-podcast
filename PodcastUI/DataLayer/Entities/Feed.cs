@@ -8,17 +8,26 @@ namespace PodcastUI.Models
     {
         public Category Category { get; set; }
         public string Url { get; set; }
+        public string Path { get; set; }
         public int UpdateIntervall { get; set; } // Här har vi skapat en node som innehåller updateintervall.
-        public List<Feed> FeedList { get; set; } // Här har vi skapat en lista med feed objekt (som består av varsin url, updateintervall och tillhör en kategori).
-        public Dictionary<Feed, List<Episode>> EpisodeListInFeed { get; set; } // Här har vi skapat en lista med Episode objekt (som härleds ur sin key, feed objekten). Den kommer bestå av avsnitt.
+        public List<Episode> Episodes { get; set; }
+
+        public Feed NewFeed (string url, int updateIntervall, List <Episode> episodes) //metod för att skapa ny feed som läggs till i sin kategori
+        {
+            var newFeed = new Feed { Url = url, UpdateIntervall = updateIntervall};
+            return newFeed;
+
+        }
+
+        public void addNewFeedToCategory(Category categoryName, List <Feed> newFeedList)
+        {
+            Category.AddFeedToCategory(categoryName, newFeedList);
+        }
+
+        }
 
 
 
-        //public void NewFeed(string url, int updateIntervall, Category category) //metod för att skapa ny feed som läggs till i sin kategori
-        //{
-        //    var newFeed = new Feed { Url = url, UpdateIntervall = updateIntervall, Category = category };
-        //    Category.AddFeedToCategory(category, newFeed);
-        //}
 
         //public void GenerateEpisodesToFeed(Feed chosenFeed)
         //{
@@ -27,17 +36,17 @@ namespace PodcastUI.Models
 
         //}
 
-        public Feed SelectFeed(string url)
-        {
-            XmlContainer xml = new XmlContainer();
+        //public Feed SelectFeed(string url)
+        //{
+        //    XmlContainer xml = new XmlContainer();
 
 
 
-            var aFeed = from feed in
-                        where feed.url == url
-                        select feed;
-            return aFeed;
-        }
+        //    var aFeed = from feed in
+        //                where feed.url == url
+        //                select feed;
+        //    return aFeed;
+        //}
 
     }
 
@@ -49,5 +58,5 @@ namespace PodcastUI.Models
     //        return this.OrderBy((w))
 
     //    }
-}
+
 

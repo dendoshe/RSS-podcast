@@ -17,12 +17,13 @@ namespace DataLayer {
         
 
         public void AddFeedInfo(string url, int frequency, string localPath) { //steg 1 och även här det avslutas . Steg 1 sätter in värder som jag lägger till xml.filen
+
             var feed = new Feed
             {
 
                 //Title = feedholder //, ifall vi vill namnge när vi lägger till en feed
-                Updateintervall = frequency,
-                Path = localPath,
+                UpdateIntervall = frequency,
+                Url = localPath,
                 Episodes = ReadEpisodesFromRssLink(url)
             };
 
@@ -42,7 +43,7 @@ namespace DataLayer {
 
             foreach (var item in syndicationFeed.Items) {
                 var episode = new Episode(); //skapat ett object av en episode som lever en gång i foreach-loopen
-                episode.Title = item.Title.Text; //Lägger till Title på avsnitte från SyndicationFeed
+                episode.Title = item.Title.Text; //Lägger till Title på avsnittet från SyndicationFeed
                 episodeList.Add(episode); //Lägger till den enskilda objecten i episodeList
 
             }
@@ -63,7 +64,7 @@ namespace DataLayer {
 
         }
 
-        public List<Feed> GetAllPodcastsInCategory(string categoryPath) {
+        public List<Feed> GetAllFeedsInCategory(string categoryPath) {
             var files = Directory.GetFiles(categoryPath);
             List<Feed> feeds = new List<Feed>();
 
@@ -87,7 +88,7 @@ namespace DataLayer {
             foreach (var folder in folders) {
 
                 var info = new DirectoryInfo(folder);
-                categories.Add(new Category() { Title = info.Name, Path = folder, PodcastList = GetAllPodcastsInCategory(folder) });
+                categories.Add(new Category() { Title = info.Name, Path = folder, FeedList = GetAllFeedsInCategory(folder) });
 
             }
             return categories;

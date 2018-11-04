@@ -36,7 +36,7 @@ namespace PodcastUI {
             _xmlcontainer.GetAllCatergories();
             foreach (var category in _categories) {
 
-                ListCategories.Items.Add(category.Title);
+                lvKategorier.Items.Add(category.Title);
                 categoryCb.Items.Add(category.Title);
 
             }
@@ -73,7 +73,7 @@ namespace PodcastUI {
                     Directory.CreateDirectory(dirName);
                     MessageBox.Show("Created dir: '" + dirName + " '");
              
-                    ListCategories.Items.Clear();
+                    lvKategorier.Items.Clear();
                     FillCatergory();  //flytta till logic
 
             }
@@ -83,11 +83,11 @@ namespace PodcastUI {
          private void button6_Click(object sender, EventArgs e) {
            
           
-          if (ListCategories.SelectedIndex != -1) {
+          if (lvKategorier.SelectedIndex != -1) {
 
-                string genreFolder = ListCategories.SelectedItem.ToString();
+                string genreFolder = lvKategorier.SelectedItem.ToString();
                 logicLayer.DeleteCategori(genreFolder);
-                ListCategories.Items.RemoveAt(ListCategories.SelectedIndex); //denna metod tar oavsett vad alltid bort det som är valt i kategori boxen
+                lvKategorier.Items.RemoveAt(lvKategorier.SelectedIndex); //denna metod tar oavsett vad alltid bort det som är valt i kategori boxen
                 //FillCatergory();
 
             } 
@@ -108,6 +108,11 @@ namespace PodcastUI {
            
            var path = Directory.GetCurrentDirectory() + @"\" + categoryCb.Text + @"\" + tx_podcastName.Text + ".xml";
             _xmlcontainer.AddFeedInfo(tx_rssUrl.Text, newUpdateInterval, path);
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
 
         }
     }
