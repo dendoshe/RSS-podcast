@@ -4,30 +4,58 @@ using System.IO;
 using System.Windows;
 using System.Windows.Forms;
 
-namespace LogicLayer {
-    public class PodcastMani {
+namespace LogicLayer
+{
+    public class PodcastMani
+    {
         private XmlContainer xmlcontainer = new XmlContainer(); //Här har vi skapat ett av XmlConatiner som ligger i DataLayer. Den körs en gång vid uppstart.
 
 
-        public void DeleteCategori(string folder) 
+
+        public void CreatenewDir(string folder)
+        {
+            var dirName = folder;
+
+            if (Directory.Exists(dirName))
+            {
+
+                MessageBox.Show("Dir: '" + dirName + "' exists");
+            }
+            else
+            {
+
+                Directory.CreateDirectory(dirName);
+                MessageBox.Show("Created dir: '" + dirName + " '");
+
+                //flytta till logic
+
+            }
+        }
+
+        public void DeleteCategori(string folder)
         {
 
             var folderLocation = Directory.GetCurrentDirectory();
             string path = Path.Combine(folderLocation, folder);
-            if (Directory.GetFiles(path).Length == 0) 
-                {
+            if (Directory.GetFiles(path).Length == 0)
+            {
                 Directory.Delete(path, true);
 
-            } else {
+            }
+            else
+            {
 
                 DialogResult dialogResult = MessageBox.Show("kategorin innehåller podcasts vill du ta bort den ändå?", "Varning", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes) {
+                if (dialogResult == DialogResult.Yes)
+                {
                     Directory.Delete(path, true);
-                } else if (dialogResult == DialogResult.No) {
-                   
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
                 }
             }
-            
+
         }
 
         //public string[] folders = {
