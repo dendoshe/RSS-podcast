@@ -20,7 +20,7 @@ namespace LogicLayer {
 
             } else {
 
-                DialogResult dialogResult = MessageBox.Show("kategegori innehåller podcasts vill du ta bort den ändå?", "Varning", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("kategorin innehåller podcasts vill du ta bort den ändå?", "Varning", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes) {
                     Directory.Delete(path, true);
                 } else if (dialogResult == DialogResult.No) {
