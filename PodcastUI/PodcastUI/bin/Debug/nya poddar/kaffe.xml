@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Feed xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Title>ajajjaja</Title>
-  <Category>yasnias favvisar</Category>
-  <Path>C:\Users\yasni\OneDrive\Dokument\GitHub\RSS-podcast\PodcastUI\PodcastUI\bin\Debug\yasnias favvisar\ajajjaja.xml</Path>
-  <Updateintervall>1500</Updateintervall>
+  <Title>kaffe</Title>
+  <Category>oscar</Category>
+  <Path>C:\Users\yasni\OneDrive\Dokument\GitHub\RSS-podcast\PodcastUI\PodcastUI\bin\Debug\oscar\kaffe.xml</Path>
+  <Updateintervall>2000</Updateintervall>
   <Episodes>
     <Episode>
       <Title>TFK.399 – Bilfärden.</Title>

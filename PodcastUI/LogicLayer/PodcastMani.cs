@@ -9,6 +9,17 @@ namespace LogicLayer {
         private XmlContainer xmlcontainer = new XmlContainer(); //Här har vi skapat ett av XmlConatiner som ligger i DataLayer. Den körs en gång vid uppstart.
 
 
+        public void ChangeCategory(string newLocation, string oldLocation) {
+
+        
+            if (Directory.Exists(oldLocation)) {
+
+                Directory.Move(oldLocation, newLocation);
+                MessageBox.Show("Din kategori har ändrats till " + newLocation);
+            }
+        }
+
+
 
         public void CreatenewDir(string folder) {
             var dirName = folder;
@@ -21,7 +32,6 @@ namespace LogicLayer {
                 Directory.CreateDirectory(dirName);
                 MessageBox.Show("Created dir: '" + dirName + " '");
 
-                  //flytta till logic
 
             }
         }
@@ -47,59 +57,24 @@ namespace LogicLayer {
             
         }
 
-        //public string[] folders = {
 
-        //    @"Workspace\",
-        //    @"Workspace\Archive\"
-        //};
+        public void DeleteFeed(string feedName, string FolderName ) {
 
-        //public enum FolderNames {
-        //    Workspace, 
-        //    Archive
-        //}
+            
+            string path = Path.Combine(Directory.GetCurrentDirectory(), FolderName, feedName + @".xml");
 
+                                 
+                DialogResult dialogResult = MessageBox.Show("Är du säkert du vill ta bort podcasten " + feedName + " permanent?", "Varning", MessageBoxButtons.YesNo);
 
-        //public void CreateDirectory() { //skapa flera folders 
+                if (dialogResult == DialogResult.Yes) {
+                    File.Delete(path);
+                } else if (dialogResult == DialogResult.No) {
 
-        //    var total = folders.Length;
+                }
+                                         
 
-        //    for (var i = 0; i < total; i++) {
-
-        //        var dirName = GetFoldersByName((FolderNames)i);
-
-        //        if (Directory.Exists(dirName)) {
-
-        //            Console.WriteLine("Dir '" + dirName + "' exists");
-        //        } else {
-
-        //            Directory.CreateDirectory(dirName);
-        //            Console.WriteLine("Create dir '" + dirName + " '");
-        //        }
-        //     }
-
-        //  }
-
-        //public void DeleteFolder(string name) { 
-
-        //    var deleteDir = GetFoldersByName(FolderNames.;
-
-        //    if(Directory.Exists(deleteDir)) {
-
-        //        Directory.Delete(deleteDir, true); 
-        //    }
-
-
-
-
-
-        //public string GetFoldersByName(FolderNames name) { //vi kan alltid anropa denna folder när vi behöver tillgång till en specifik folder
-
-        //    return folders[(int)name];
-        //}
-
-
-
-
+        }
+              
     }
 
 }
