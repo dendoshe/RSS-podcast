@@ -14,11 +14,10 @@ namespace DataLayer {
 
         private XmlSerializer _xmlSerializer = new XmlSerializer(typeof(Feed));
 
-        
 
-        public async Task  AddFeedInfo(string url, int frequency, string localPath, string podcastName, string inputCategory) { //steg 1 och även här det avslutas . Steg 1 sätter in värder som jag lägger till xml.filen
-            var feed = new Feed
-            {
+
+        public async Task AddFeedInfo(string url, int frequency, string localPath, string podcastName, string inputCategory) { //steg 1 och även här det avslutas . Steg 1 sätter in värder som jag lägger till xml.filen
+            var feed = new Feed {
 
                 Title = podcastName, //, ifall vi vill namnge när vi lägger till en feed
                 Category = inputCategory,
@@ -32,7 +31,7 @@ namespace DataLayer {
 
         }
 
-    
+
         public async Task<List<Episode>> ReadEpisodesFromRssLink(string rssLink) // steg 2, detta hämtar namn på enskilda feeds
         {
 
@@ -47,7 +46,7 @@ namespace DataLayer {
             //});
             XmlReader reader = XmlReader.Create(rssLink);
             SyndicationFeed feed = SyndicationFeed.Load(reader);
-            List <Episode> episodeList = new List<Episode>();
+            List<Episode> episodeList = new List<Episode>();
 
             foreach (var item in feed.Items) {
                 var episode = new Episode(); //skapat ett object av en episode som lever en gång i foreach-loopen
@@ -96,29 +95,28 @@ namespace DataLayer {
             List<Feed> feeds = new List<Feed>();
             //foreach (var item in getCatergories) {
 
-                var path = Directory.GetCurrentDirectory();
-                var foldersTwo = Directory.GetDirectories(path);
-                
+            var path = Directory.GetCurrentDirectory();
+            var foldersTwo = Directory.GetDirectories(path);
 
-                foreach (var anitem in getCatergories) {
 
-                    var getfiles = Directory.GetFiles(anitem.Title);
-                    var info = new FileInfo(anitem.Title);
-                    foreach (var finalItems in getfiles) {
+            foreach (var anitem in getCatergories) {
 
-                        using (var reader = new StreamReader(finalItems)) 
-                        {
-                            feeds.Add((Feed)_xmlSerializer.Deserialize(reader));
-                            reader.Close();
-                           
-                            
-                        }
-                      
+                var getfiles = Directory.GetFiles(anitem.Title);
+                var info = new FileInfo(anitem.Title);
+                foreach (var finalItems in getfiles) {
 
-                    
+                    using (var reader = new StreamReader(finalItems)) {
+                        feeds.Add((Feed)_xmlSerializer.Deserialize(reader));
+                        reader.Close();
+
+
                     }
+
+
+
                 }
-           // }
+            }
+            // }
             return feeds;
         }
 
@@ -137,5 +135,5 @@ namespace DataLayer {
         }
 
 
-     }
+    }
 }

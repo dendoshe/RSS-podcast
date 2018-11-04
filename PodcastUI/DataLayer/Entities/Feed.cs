@@ -12,10 +12,6 @@ namespace PodcastUI.Models {
       
     }
 
-    //public class PodcastList : List<Podcast> {
-    //    public List<Podcast> GetOrdered() {
-    //        return this.OrderBy((w))
-
-    //    }
  }
+
 

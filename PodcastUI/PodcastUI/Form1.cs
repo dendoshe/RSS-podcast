@@ -21,7 +21,7 @@ namespace PodcastUI {
         private List<Category> _categories;
         private List<Feed> _feeds;
         private string podname;
-      
+
 
         public Form1() {
             InitializeComponent();
@@ -32,7 +32,7 @@ namespace PodcastUI {
             FillCatergory();
             FillUpdateInterval();
             FillPodcastInfoList();
-         
+
         }
         private void FillUpdateInterval() {
             cb_updateinterval.Items.Add(500);
@@ -67,11 +67,11 @@ namespace PodcastUI {
                 var titleOfCategory = podcast.Title;
                 foreach (var podcastFile in podcast.PodcastList) {
 
-                   var totalEpisodes = podcastFile.Episodes.Count().ToString();
-                   string[] row = {podcastFile.Title, totalEpisodes, podcastFile.Updateintervall.ToString(), titleOfCategory };
+                    var totalEpisodes = podcastFile.Episodes.Count().ToString();
+                    string[] row = { podcastFile.Title, totalEpisodes, podcastFile.Updateintervall.ToString(), titleOfCategory };
 
-                   ListViewItem lvt = new ListViewItem(row);
-                   listView1.Items.Add(lvt);
+                    ListViewItem lvt = new ListViewItem(row);
+                    listView1.Items.Add(lvt);
                 }
             }
         }
@@ -83,7 +83,7 @@ namespace PodcastUI {
         private void listView1_SelectedIndexChanged(object sender, EventArgs e) {
 
             var podcastItem = listView1.SelectedItems;
-            
+
             if (listView1.SelectedItems.Count == 1) {
 
                 var firstSelectedItem = listView1.SelectedItems[0].Text;
@@ -102,8 +102,8 @@ namespace PodcastUI {
 
                 }
             }
-            
-            
+
+
         }
 
         private void button5_Click(object sender, EventArgs e) {
@@ -122,14 +122,14 @@ namespace PodcastUI {
 
             string newDir = skrivKategori.Text;
             logicLayer.CreatenewDir(newDir);
-            
+
             FillCatergory();
         }
 
         private void button6_Click(object sender, EventArgs e) {
-           
-          
-          if (ListCategories.SelectedIndex != -1) {
+
+
+            if (ListCategories.SelectedIndex != -1) {
 
                 string genreFolder = ListCategories.SelectedItem.ToString();
                 logicLayer.DeleteCategori(genreFolder);
@@ -137,12 +137,12 @@ namespace PodcastUI {
                 FillCatergory();
 
 
-            } 
+            }
         }
 
-         private void listView3_SelectedIndexChanged(object sender, EventArgs e) {
+        private void listView3_SelectedIndexChanged(object sender, EventArgs e) {
 
-            
+
         }
 
         private void ListCategories_SelectedIndexChanged(object sender, EventArgs e) {
@@ -152,8 +152,8 @@ namespace PodcastUI {
         private void button2_Click(object sender, EventArgs e) {
             var updateInterval = cb_updateinterval.Text;
             int newUpdateInterval = Convert.ToInt32(updateInterval);
-           
-           var path = Directory.GetCurrentDirectory() + @"\" + categoryCb.Text + @"\" + tx_podcastName.Text + ".xml";
+
+            var path = Directory.GetCurrentDirectory() + @"\" + categoryCb.Text + @"\" + tx_podcastName.Text + ".xml";
             _xmlcontainer.AddFeedInfo(tx_rssUrl.Text, newUpdateInterval, path, tx_podcastName.Text, categoryCb.Text);
             FillPodcastInfoList();
 
