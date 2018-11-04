@@ -11,7 +11,7 @@ namespace LogicLayer {
 
         public void ChangeCategory(string newLocation, string oldLocation) {
 
-        
+
             if (Directory.Exists(oldLocation)) {
 
                 Directory.Move(oldLocation, newLocation);
@@ -36,13 +36,11 @@ namespace LogicLayer {
             }
         }
 
-        public void DeleteCategori(string folder) 
-        {
+        public void DeleteCategori(string folder) {
 
             var folderLocation = Directory.GetCurrentDirectory();
             string path = Path.Combine(folderLocation, folder);
-            if (Directory.GetFiles(path).Length == 0) 
-                {
+            if (Directory.GetFiles(path).Length == 0) {
                 Directory.Delete(path, true);
 
             } else {
@@ -51,30 +49,26 @@ namespace LogicLayer {
                 if (dialogResult == DialogResult.Yes) {
                     Directory.Delete(path, true);
                 } else if (dialogResult == DialogResult.No) {
-                   
+
                 }
             }
-            
+
         }
 
 
-        public void DeleteFeed(string feedName, string FolderName ) {
+        public void DeleteFeed(string feedName, string FolderName) {
 
-            
             string path = Path.Combine(Directory.GetCurrentDirectory(), FolderName, feedName + @".xml");
 
-                                 
-                DialogResult dialogResult = MessageBox.Show("Är du säkert du vill ta bort podcasten " + feedName + " permanent?", "Varning", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Är du säkert du vill ta bort podcasten " + feedName + " permanent?", "Varning", MessageBoxButtons.YesNo);
 
-                if (dialogResult == DialogResult.Yes) {
-                    File.Delete(path);
-                } else if (dialogResult == DialogResult.No) {
+            if (dialogResult == DialogResult.Yes) {
+                File.Delete(path);
+            } else if (dialogResult == DialogResult.No) {
 
-                }
-                                         
-
+            }
         }
-              
+
     }
 
 }
