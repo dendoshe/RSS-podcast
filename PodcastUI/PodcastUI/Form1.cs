@@ -64,11 +64,11 @@ namespace PodcastUI {
             _categories = listOfcategories;
             foreach (var podcast in _categories) {
 
-                var hej = podcast.Title;
+                var titleOfCategory = podcast.Title;
                 foreach (var podcastFile in podcast.PodcastList) {
 
                    var totalEpisodes = podcastFile.Episodes.Count().ToString();
-                   string[] row = {podcastFile.Title, totalEpisodes, podcastFile.Updateintervall.ToString(), hej };
+                   string[] row = {podcastFile.Title, totalEpisodes, podcastFile.Updateintervall.ToString(), titleOfCategory };
 
                    ListViewItem lvt = new ListViewItem(row);
                    listView1.Items.Add(lvt);
@@ -88,11 +88,12 @@ namespace PodcastUI {
 
                 var firstSelectedItem = listView1.SelectedItems[0].Text;
                 podname = firstSelectedItem;
+
                 foreach (var item in _feeds) {
+
                     if (item.Title.Equals(firstSelectedItem)) {
 
                         foreach (var episodeList in item.Episodes) {
-
 
                             listAvsnitt.Items.Add(episodeList.Title);
                         }
@@ -172,11 +173,8 @@ namespace PodcastUI {
                     foreach (var singleEpisode in items.Episodes) {
                         if (singleEpisode.Title.Equals(selectedEpisode) && items.Title.Equals(podname)) {
                             listdescrip.Items.Add(singleEpisode.Description);
-
                         }
-
                     }
-
                 }
             }
         }
