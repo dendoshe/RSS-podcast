@@ -31,7 +31,11 @@ namespace DataLayer {
 
         }
 
+        public async Task AddFeedInfo (string url, string frequency, string localPath, string podcastName, string inputCategory) {
+            await AddFeedInfo(url, int.Parse(frequency), localPath, podcastName, inputCategory);
 
+
+        }
 
         public void AddToXmlContainer(string url, int updateinterval, string path, string name, string category) {
             XmlContainer _xmlcontainer = new XmlContainer();
