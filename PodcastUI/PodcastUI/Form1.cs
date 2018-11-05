@@ -12,6 +12,8 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LogicLayer;
+using System.Text.RegularExpressions;
 
 namespace PodcastUI {
 
@@ -21,6 +23,7 @@ namespace PodcastUI {
         private List<Category> _categories;
         private List<Feed> _feeds;
         private string podname;
+
 
 
         public Form1() {
@@ -83,6 +86,7 @@ namespace PodcastUI {
         private void listView1_SelectedIndexChanged(object sender, EventArgs e) {
 
             var podcastItem = listView1.SelectedItems;
+            listAvsnitt.Clear();
 
             if (listView1.SelectedItems.Count == 1) {
 
@@ -107,11 +111,21 @@ namespace PodcastUI {
         }
 
         private void button5_Click(object sender, EventArgs e) {
-            string changeDir = skrivKategori.Text;
-            string path = ListCategories.SelectedItem.ToString();
-            logicLayer.ChangeCategory(changeDir, path);
-            FillCatergory();
-            FillPodcastInfoList();
+
+            Validator Validation = new Validator(skrivKategori, "", "Markera kategorin som du vill ändra och skriv det nya namnet i fältet");
+
+            while (Validation.isFieldEmpty() == true)
+            {
+                string changeDir = skrivKategori.Text;
+                string path = ListCategories.SelectedItem.ToString();
+                logicLayer.ChangeCategory(changeDir, path);
+                FillCatergory();
+                FillPodcastInfoList();
+
+            }
+
+
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e) {
@@ -119,15 +133,29 @@ namespace PodcastUI {
         }
 
         private void nykategori_Click(object sender, EventArgs e) {
+            Validator checkIfEmpty = new Validator(skrivKategori, "Kategori", " är tomt. Försök igen");
 
-            string newDir = skrivKategori.Text;
-            logicLayer.CreatenewDir(newDir);
+            try
+            {
+                while (checkIfEmpty.isFieldEmpty() == false)
+                {
+                    string newDir = skrivKategori.Text;
+                    logicLayer.CreatenewDir(newDir);
 
-            FillCatergory();
+                    FillCatergory();
+                    skrivKategori.Clear();
+                    break;
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void button6_Click(object sender, EventArgs e) {
-
 
             if (ListCategories.SelectedIndex != -1) {
 
@@ -150,21 +178,30 @@ namespace PodcastUI {
         }
 
         private void button2_Click(object sender, EventArgs e) {
-            var updateInterval = cb_updateinterval.Text;
-            int newUpdateInterval = Convert.ToInt32(updateInterval);
+            Validator checkIfBoxEmpty = new Validator(cb_updateinterval, "Du måste ange hur ofta du vill att din nya podcast ska uppdateras");
+            Validator checkIfURLEmpty = new Validator(tx_rssUrl, "URL", "Du måste ange ett giltigt URL");
+            Validator checkIfNameEmpty = new Validator(tx_podcastName, "Namn", "Podcasten som du vill lägga till måste ha ett namn");
+            Validator checkIfCategoryEmtpty = new Validator(categoryCb, "Välj en kategori till din nya podcast");
 
-            var path = Directory.GetCurrentDirectory() + @"\" + categoryCb.Text + @"\" + tx_podcastName.Text + ".xml";
-            _xmlcontainer.AddFeedInfo(tx_rssUrl.Text, newUpdateInterval, path, tx_podcastName.Text, categoryCb.Text);
-            FillPodcastInfoList();
+            if(!checkIfBoxEmpty.isBoxEmpty() && !checkIfURLEmpty.isFieldEmpty() && !checkIfNameEmpty.isFieldEmpty() && !checkIfCategoryEmtpty.isBoxEmpty() && tx_rssUrl.Text.Contains("rss"))
+            {
+                var updateInterval = cb_updateinterval.Text;
+                int newUpdateInterval = Convert.ToInt32(updateInterval);
 
+                var path = Directory.GetCurrentDirectory() + @"\" + categoryCb.Text + @"\" + tx_podcastName.Text + ".xml";
+                var result = _xmlcontainer.AddFeedInfo(tx_rssUrl.Text, newUpdateInterval, path, tx_podcastName.Text, categoryCb.Text);
+                FillPodcastInfoList();
+            }
 
-
+            else
+            {
+                MessageBox.Show("Någonting gick fel. Kanske är den URL du angav inte giltig?");
+            }
 
 
         }
 
         private void listAvsnitt_SelectedIndexChanged(object sender, EventArgs e) {
-
             listdescrip.Items.Clear();
             if (listAvsnitt.SelectedItems.Count == 1) {
                 var selectedEpisode = listAvsnitt.SelectedItems[0].Text;
@@ -172,6 +209,7 @@ namespace PodcastUI {
                 foreach (var items in _feeds) {
                     foreach (var singleEpisode in items.Episodes) {
                         if (singleEpisode.Title.Equals(selectedEpisode) && items.Title.Equals(podname)) {
+
                             listdescrip.Items.Add(singleEpisode.Description);
                         }
                     }
