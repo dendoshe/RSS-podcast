@@ -20,12 +20,14 @@ namespace PodcastUI {
         private XmlContainer _xmlcontainer = new XmlContainer();
         private List<Category> _categories;
         private List<Feed> _feeds;
+        private Updatecontainer _updatecontainer;
         private string podname;
 
 
         public Form1() {
             InitializeComponent();
             logicLayer = new PodcastMani();
+            _updatecontainer = new Updatecontainer();
             _xmlcontainer = new XmlContainer();
             _categories = _xmlcontainer.GetAllCatergories();
             _feeds = _xmlcontainer.GetAllPoscastInCategory();
@@ -67,6 +69,7 @@ namespace PodcastUI {
                 var titleOfCategory = podcast.Title;
                 foreach (var podcastFile in podcast.PodcastList) {
 
+                    _updatecontainer.newUpdate(podcastFile.Title, titleOfCategory, podcastFile, podcastFile.RssLink);
                     var totalEpisodes = podcastFile.Episodes.Count().ToString();
                     string[] row = { podcastFile.Title, totalEpisodes, podcastFile.Updateintervall.ToString(), titleOfCategory };
 
@@ -154,7 +157,7 @@ namespace PodcastUI {
             int newUpdateInterval = Convert.ToInt32(updateInterval);
 
             var path = Directory.GetCurrentDirectory() + @"\" + categoryCb.Text + @"\" + tx_podcastName.Text + ".xml";
-            _xmlcontainer.AddFeedInfo(tx_rssUrl.Text, newUpdateInterval, path, tx_podcastName.Text, categoryCb.Text);
+            _xmlcontainer.AddFeedInfo(tx_rssUrl.Text,tx_rssUrl.Text, newUpdateInterval, path, tx_podcastName.Text, categoryCb.Text);
             FillPodcastInfoList();
 
 

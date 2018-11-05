@@ -16,11 +16,12 @@ namespace DataLayer {
 
 
 
-        public async Task AddFeedInfo(string url, int frequency, string localPath, string podcastName, string inputCategory) { //steg 1 och även här det avslutas . Steg 1 sätter in värder som jag lägger till xml.filen
+        public async Task AddFeedInfo(string url,string rssLink, int frequency, string localPath, string podcastName, string inputCategory) { //steg 1 och även här det avslutas . Steg 1 sätter in värder som jag lägger till xml.filen
             var feed = new Feed {
 
                 Title = podcastName, //, ifall vi vill namnge när vi lägger till en feed
                 Category = inputCategory,
+                RssLink = rssLink,
                 Updateintervall = frequency,
                 Path = localPath,
                 Episodes = await ReadEpisodesFromRssLink(url)
@@ -29,6 +30,17 @@ namespace DataLayer {
             save(feed);
 
 
+        }
+
+        public async Task AddFeedInfo(string url, string rssLink, string frequency, string localPath, string podcastName, string inputCategory) {
+            await AddFeedInfo(url, rssLink, int.Parse(frequency), localPath, podcastName, inputCategory);
+
+
+        }
+
+        public void AddToXmlContainer(string url, string rssLink, int updateinterval, string path, string name, string category) {
+            XmlContainer _xmlcontainer = new XmlContainer();
+            var result = _xmlcontainer.AddFeedInfo(url,rssLink, updateinterval, path, name, category);
         }
 
 
