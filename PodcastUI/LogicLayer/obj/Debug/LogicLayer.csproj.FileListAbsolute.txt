@@ -7,6 +7,7 @@ C:\Users\yasni\OneDrive\Dokument\GitHub\RSS-podcast\PodcastUI\LogicLayer\bin\Deb
 C:\Users\yasni\OneDrive\Dokument\GitHub\RSS-podcast\PodcastUI\LogicLayer\obj\Debug\LogicLayer.csproj.CopyComplete
 C:\Users\yasni\OneDrive\Dokument\GitHub\RSS-podcast\PodcastUI\LogicLayer\obj\Debug\LogicLayer.dll
 C:\Users\yasni\OneDrive\Dokument\GitHub\RSS-podcast\PodcastUI\LogicLayer\obj\Debug\LogicLayer.pdb
+<<<<<<< HEAD
 C:\Users\Diana Jumaili\Documents\GitHub\RSS-podcast\PodcastUI\LogicLayer\bin\Debug\LogicLayer.dll
 C:\Users\Diana Jumaili\Documents\GitHub\RSS-podcast\PodcastUI\LogicLayer\bin\Debug\LogicLayer.pdb
 C:\Users\Diana Jumaili\Documents\GitHub\RSS-podcast\PodcastUI\LogicLayer\bin\Debug\DataLayer.dll
@@ -16,3 +17,14 @@ C:\Users\Diana Jumaili\Documents\GitHub\RSS-podcast\PodcastUI\LogicLayer\obj\Deb
 C:\Users\Diana Jumaili\Documents\GitHub\RSS-podcast\PodcastUI\LogicLayer\obj\Debug\LogicLayer.csproj.CopyComplete
 C:\Users\Diana Jumaili\Documents\GitHub\RSS-podcast\PodcastUI\LogicLayer\obj\Debug\LogicLayer.dll
 C:\Users\Diana Jumaili\Documents\GitHub\RSS-podcast\PodcastUI\LogicLayer\obj\Debug\LogicLayer.pdb
+=======
+C:\Users\Jumaili\Documents\GitHub\RSS-podcast\PodcastUI\LogicLayer\bin\Debug\LogicLayer.dll
+C:\Users\Jumaili\Documents\GitHub\RSS-podcast\PodcastUI\LogicLayer\bin\Debug\LogicLayer.pdb
+C:\Users\Jumaili\Documents\GitHub\RSS-podcast\PodcastUI\LogicLayer\bin\Debug\DataLayer.dll
+C:\Users\Jumaili\Documents\GitHub\RSS-podcast\PodcastUI\LogicLayer\bin\Debug\DataLayer.pdb
+C:\Users\Jumaili\Documents\GitHub\RSS-podcast\PodcastUI\LogicLayer\obj\Debug\LogicLayer.csprojAssemblyReference.cache
+C:\Users\Jumaili\Documents\GitHub\RSS-podcast\PodcastUI\LogicLayer\obj\Debug\LogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\Jumaili\Documents\GitHub\RSS-podcast\PodcastUI\LogicLayer\obj\Debug\LogicLayer.csproj.CopyComplete
+C:\Users\Jumaili\Documents\GitHub\RSS-podcast\PodcastUI\LogicLayer\obj\Debug\LogicLayer.dll
+C:\Users\Jumaili\Documents\GitHub\RSS-podcast\PodcastUI\LogicLayer\obj\Debug\LogicLayer.pdb
+>>>>>>> origin/devDodo

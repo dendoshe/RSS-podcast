@@ -3,103 +3,90 @@ using System;
 using System.IO;
 using System.Windows;
 using System.Windows.Forms;
+using PodcastUI;
 
-namespace LogicLayer {
-    public class PodcastMani {
+namespace LogicLayer
+{
+    public class PodcastMani : IPodcastInterface {
         private XmlContainer xmlcontainer = new XmlContainer(); //Här har vi skapat ett av XmlConatiner som ligger i DataLayer. Den körs en gång vid uppstart.
 
 
 
-        public void CreatenewDir(string folder) {
-            var dirName = folder;
 
-            if (Directory.Exists(dirName)) {
 
-                MessageBox.Show("Dir: '" + dirName + "' exists");
-            } else {
+        public void Delete(string theCategory, string selectedFeed) {
+            string path = Path.Combine(Directory.GetCurrentDirectory(), selectedFeed, theCategory + @".xml");
 
-                Directory.CreateDirectory(dirName);
-                MessageBox.Show("Created dir: '" + dirName + " '");
+            DialogResult dialogResult = MessageBox.Show("Är du säker på att du vill ta bort podcasten " + selectedFeed + " permanent?", "Varning", MessageBoxButtons.YesNo);
 
-                  //flytta till logic
+            if (dialogResult == DialogResult.Yes) {
+                File.Delete(path);
+            } else if (dialogResult == DialogResult.No) {
 
             }
         }
 
-        public void DeleteCategori(string folder) 
-        {
+
+
+        public void DeleteCategory(string folder, string smh) {
 
             var folderLocation = Directory.GetCurrentDirectory();
             string path = Path.Combine(folderLocation, folder);
-            if (Directory.GetFiles(path).Length == 0) 
-                {
+
+            if (Directory.GetFiles(path).Length == 0) {
                 Directory.Delete(path, true);
 
             } else {
 
-                DialogResult dialogResult = MessageBox.Show("kategegori innehåller podcasts vill du ta bort den ändå?", "Varning", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("kategorin som du har valt innehåller podcasts. Vill du ta bort den ändå?", "Varning", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes) {
                     Directory.Delete(path, true);
                 } else if (dialogResult == DialogResult.No) {
-                   
+
                 }
             }
-            
         }
 
-        //public string[] folders = {
+        public void Add(string folder, string smh) {
+            smh = "";
+            var dirName = folder;
 
-        //    @"Workspace\",
-        //    @"Workspace\Archive\"
-        //};
+            try {
+                if (Directory.Exists(dirName)) {
 
-        //public enum FolderNames {
-        //    Workspace, 
-        //    Archive
-        //}
+                    MessageBox.Show("Dir: " + dirName + " finns redan");
+                } else {
+                    Directory.CreateDirectory(dirName);
+                    MessageBox.Show("Skapat dir: " + dirName);
+                }
+            } catch (Exception) {
+
+                throw;
+            }
 
 
-        //public void CreateDirectory() { //skapa flera folders 
+        }
 
-        //    var total = folders.Length;
+        public void Edit(string newLocation, string oldLocation) {
 
-        //    for (var i = 0; i < total; i++) {
+            if (Directory.Exists(oldLocation)) {
 
-        //        var dirName = GetFoldersByName((FolderNames)i);
+                Directory.Move(oldLocation, newLocation);
+                MessageBox.Show("Din kategori har ändrats till " + newLocation);
+            }
 
-        //        if (Directory.Exists(dirName)) {
 
-        //            Console.WriteLine("Dir '" + dirName + "' exists");
-        //        } else {
-
-        //            Directory.CreateDirectory(dirName);
-        //            Console.WriteLine("Create dir '" + dirName + " '");
-        //        }
-        //     }
-
-        //  }
-
-        //public void DeleteFolder(string name) { 
-
-        //    var deleteDir = GetFoldersByName(FolderNames.;
-
-        //    if(Directory.Exists(deleteDir)) {
-
-        //        Directory.Delete(deleteDir, true); 
-        //    }
+        }
 
 
 
 
+        public void editFeed(string URL, string folderName, int updateInterval, string category)
+        {
 
-        //public string GetFoldersByName(FolderNames name) { //vi kan alltid anropa denna folder när vi behöver tillgång till en specifik folder
+            string path = Path.Combine(Directory.GetCurrentDirectory(), folderName, URL + @".xml");
+            
 
-        //    return folders[(int)name];
-        //}
-
-
-
-
+        }
     }
-
 }
