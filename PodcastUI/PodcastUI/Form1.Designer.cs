@@ -1,4 +1,6 @@
-﻿namespace PodcastUI
+﻿using System;
+
+namespace PodcastUI
 {
     partial class Form1
     {
@@ -42,18 +44,17 @@
             this.btn_saveXML = new System.Windows.Forms.Button();
             this.btn_DeletePodcast = new System.Windows.Forms.Button();
             this.btn_newCatergory = new System.Windows.Forms.Button();
-            this.btn_changeCategory = new System.Windows.Forms.Button();
             this.btn_deleteCategory = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.ListCategories = new System.Windows.Forms.ListBox();
             this.tx_podcastName = new System.Windows.Forms.TextBox();
             this.title_name = new System.Windows.Forms.Label();
             this.listdescrip = new System.Windows.Forms.ListBox();
+            this.btnAndra = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -146,6 +147,7 @@
             this.btn_changeFeeds.TabIndex = 7;
             this.btn_changeFeeds.Text = "Ändra";
             this.btn_changeFeeds.UseVisualStyleBackColor = true;
+            this.btn_changeFeeds.Click += new System.EventHandler(this.btn_changeFeeds_Click);
             // 
             // btn_saveXML
             // 
@@ -179,17 +181,6 @@
             this.btn_newCatergory.Text = "Lägg till";
             this.btn_newCatergory.UseVisualStyleBackColor = true;
             this.btn_newCatergory.Click += new System.EventHandler(this.nykategori_Click);
-            // 
-            // btn_changeCategory
-            // 
-            this.btn_changeCategory.Location = new System.Drawing.Point(505, 153);
-            this.btn_changeCategory.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_changeCategory.Name = "btn_changeCategory";
-            this.btn_changeCategory.Size = new System.Drawing.Size(50, 23);
-            this.btn_changeCategory.TabIndex = 11;
-            this.btn_changeCategory.Text = "Ändra";
-            this.btn_changeCategory.UseVisualStyleBackColor = true;
-            this.btn_changeCategory.Click += new System.EventHandler(this.button5_Click);
             // 
             // btn_deleteCategory
             // 
@@ -243,20 +234,10 @@
             this.label4.TabIndex = 16;
             this.label4.Text = "Kategorier:";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 213);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "xxxxx:";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(51, 213);
+            this.label6.Location = new System.Drawing.Point(16, 219);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(39, 13);
@@ -300,23 +281,32 @@
             this.listdescrip.Size = new System.Drawing.Size(304, 95);
             this.listdescrip.TabIndex = 22;
             // 
+            // btnAndra
+            // 
+            this.btnAndra.Location = new System.Drawing.Point(498, 154);
+            this.btnAndra.Name = "btnAndra";
+            this.btnAndra.Size = new System.Drawing.Size(56, 23);
+            this.btnAndra.TabIndex = 23;
+            this.btnAndra.Text = "Ändra";
+            this.btnAndra.UseVisualStyleBackColor = true;
+            this.btnAndra.Click += new System.EventHandler(this.btnAndra_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(943, 342);
+            this.Controls.Add(this.btnAndra);
             this.Controls.Add(this.listdescrip);
             this.Controls.Add(this.title_name);
             this.Controls.Add(this.tx_podcastName);
             this.Controls.Add(this.ListCategories);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_deleteCategory);
-            this.Controls.Add(this.btn_changeCategory);
             this.Controls.Add(this.btn_newCatergory);
             this.Controls.Add(this.btn_DeletePodcast);
             this.Controls.Add(this.btn_saveXML);
@@ -336,6 +326,11 @@
 
         }
 
+        private void btn_changeFeeds_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         private System.Windows.Forms.ListView listView1;
@@ -352,18 +347,17 @@
         private System.Windows.Forms.Button btn_saveXML;
         private System.Windows.Forms.Button btn_DeletePodcast;
         private System.Windows.Forms.Button btn_newCatergory;
-        private System.Windows.Forms.Button btn_changeCategory;
         private System.Windows.Forms.Button btn_deleteCategory;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListBox ListCategories;
         private System.Windows.Forms.TextBox tx_podcastName;
         private System.Windows.Forms.Label title_name;
         private System.Windows.Forms.ListBox listdescrip;
+        private System.Windows.Forms.Button btnAndra;
     }
 }
 

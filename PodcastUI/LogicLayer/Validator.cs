@@ -9,13 +9,10 @@ namespace LogicLayer
 {
     public class Validator
     {
-
-
         TextBox Field { get; set; }
         ComboBox Box;
         string FieldName { get; set; }
         string Message { get; set; }
-        string Dublett { get; set; }
 
         public Validator(ComboBox box, string message)
         {
@@ -44,6 +41,7 @@ namespace LogicLayer
 
             return result;
         }
+
 
         public bool isFieldEmpty()
         {

@@ -22,7 +22,7 @@ namespace DataLayer {
                 Title = podcastName, //, ifall vi vill namnge när vi lägger till en feed
                 Category = inputCategory,
                 Updateintervall = frequency,
-                Path = localPath,
+                aPath = localPath,
                 Episodes = await ReadEpisodesFromRssLink(url)
             };
 
@@ -64,7 +64,7 @@ namespace DataLayer {
         public void save(Feed feedObject) //steg 3 Det här är en metod för att spara Xml-filen. 
         {
             XmlSerializer serializer = new XmlSerializer(typeof(Feed));
-            using (StreamWriter writer = new StreamWriter(feedObject.Path)) {
+            using (StreamWriter writer = new StreamWriter(feedObject.aPath)) {
 
                 serializer.Serialize(writer, feedObject);
                 writer.Close();
@@ -127,7 +127,7 @@ namespace DataLayer {
             foreach (var folder in folders) {
 
                 var info = new DirectoryInfo(folder);
-                categories.Add(new Category() { Title = info.Name, Path = folder, PodcastList = GetAllPodcastsInCategory(folder) });
+                categories.Add(new Category() { Title = info.Name, aPath = folder, PodcastList = GetAllPodcastsInCategory(folder) });
 
             }
             return categories;
