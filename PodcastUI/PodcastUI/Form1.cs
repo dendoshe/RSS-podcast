@@ -137,14 +137,14 @@ namespace PodcastUI {
 
         private void nykategori_Click(object sender, EventArgs e) {
             Validator checkIfEmpty = new Validator(skrivKategori, "Kategori", " är tomt. Försök igen");
-            Category aCategory = new Category();
+            //Category aCategory = new Category();
 
             try
             {
                 while (checkIfEmpty.isFieldEmpty() == false)
                 {
                     string newDir = skrivKategori.Text;
-                    aCategory.Add(newDir, "");
+                    logicLayer.Add(newDir, "");
 
                     FillCatergory();
                     skrivKategori.Clear();
@@ -160,15 +160,18 @@ namespace PodcastUI {
         }
 
         private void button6_Click(object sender, EventArgs e) {
-            Category selectedCategory = new Category();
+            //Category selectedCategory = new Category();
 
 
             if (ListCategories.SelectedIndex != -1) {
 
                 string genreFolder = ListCategories.SelectedItem.ToString();
-                selectedCategory.Delete(genreFolder, "");
+                logicLayer.DeleteCategory(genreFolder, "");
                 ListCategories.Items.RemoveAt(ListCategories.SelectedIndex); //denna metod tar oavsett vad alltid bort det som är valt i kategori boxen
                 FillCatergory();
+                FillPodcastInfoList();
+
+
 
 
             }
@@ -188,7 +191,7 @@ namespace PodcastUI {
             Validator checkIfURLEmpty = new Validator(tx_rssUrl, "URL", "Du måste ange ett giltigt URL");
             Validator checkIfNameEmpty = new Validator(tx_podcastName, "Namn", "Podcasten som du vill lägga till måste ha ett namn");
             Validator checkIfCategoryEmtpty = new Validator(categoryCb, "Välj en kategori till din nya podcast");
-            Feed newFeed = new Feed();
+            //Feed newFeed = new Feed();
 
             if(!checkIfBoxEmpty.isBoxEmpty() && !checkIfURLEmpty.isFieldEmpty() && !checkIfNameEmpty.isFieldEmpty() && !checkIfCategoryEmtpty.isBoxEmpty() && tx_rssUrl.Text.Contains("rss"))
             {
@@ -196,9 +199,10 @@ namespace PodcastUI {
                 int newUpdateInterval = Convert.ToInt32(updateInterval);
                 var path = Directory.GetCurrentDirectory() + @"\" + categoryCb.Text + @"\" + tx_podcastName.Text + ".xml";
 
-                newFeed.Add(categoryCb.Text, tx_podcastName.Text);
-                newFeed.AddToXmlContainer(tx_rssUrl.Text, newUpdateInterval, path, tx_podcastName.Text, categoryCb.Text);
+                //newFeed.Add(categoryCb.Text, tx_podcastName.Text);
+                _xmlcontainer.AddToXmlContainer(tx_rssUrl.Text, newUpdateInterval, path, tx_podcastName.Text, categoryCb.Text);
                 FillPodcastInfoList();
+
             }
 
             else
@@ -232,11 +236,16 @@ namespace PodcastUI {
 
         private void btn_DeletePodcast_Click(object sender, EventArgs e) {
 
-            Feed aFeed = new Feed();
+            //fixa validering så det kommer upp ett felmeddelande om ingen podcast är vald som ska raderas
+            //Feed aFeed = new Feed();
+            if (listView1.SelectedItems.Count == 1) {
 
-            var selectedFeed = listView1.SelectedItems[0];
-            aFeed.Delete(selectedFeed.SubItems[0].Text, selectedFeed.SubItems[3].Text);
-            FillPodcastInfoList();
+                var selectedFeed = listView1.SelectedItems[0];
+                logicLayer.Delete(selectedFeed.SubItems[0].Text, selectedFeed.SubItems[3].Text);
+                FillPodcastInfoList();
+            }
+            
+
 
         }
 
@@ -250,18 +259,21 @@ namespace PodcastUI {
                 {
                     string changeDir = skrivKategori.Text;
                     string path = ListCategories.SelectedItem.ToString();
-                    Category aCategory = new Category();
-                    aCategory.Edit(changeDir, path);
+                    logicLayer.Edit(changeDir, path);
                     FillCatergory();
                     FillPodcastInfoList();
 
                 }
             }
-            catch (NullReferenceException)
+            catch (Exception ex)
             {
 
-                throw;
+                
+                throw ex;
+                string hej = "";
+               
             }
+            
 
 
         }

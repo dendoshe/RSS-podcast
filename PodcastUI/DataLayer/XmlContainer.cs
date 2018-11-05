@@ -32,6 +32,13 @@ namespace DataLayer {
         }
 
 
+
+        public void AddToXmlContainer(string url, int updateinterval, string path, string name, string category) {
+            XmlContainer _xmlcontainer = new XmlContainer();
+            var result = _xmlcontainer.AddFeedInfo(url, updateinterval, path, name, category);
+        }
+
+
         public async Task<List<Episode>> ReadEpisodesFromRssLink(string rssLink) // steg 2, detta hämtar namn på enskilda feeds
         {
 
@@ -93,7 +100,7 @@ namespace DataLayer {
             var getCatergories = GetAllCatergories();
 
             List<Feed> feeds = new List<Feed>();
-            //foreach (var item in getCatergories) {
+           
 
             var path = Directory.GetCurrentDirectory();
             var foldersTwo = Directory.GetDirectories(path);
@@ -116,7 +123,7 @@ namespace DataLayer {
 
                 }
             }
-            // }
+            
             return feeds;
         }
 
