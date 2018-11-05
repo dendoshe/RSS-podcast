@@ -1,12 +1,11 @@
-C:\Users\yasni\OneDrive\Dokument\GitHub\RSS-podcast\PodcastUI\DataLayer\bin\Debug\DataLayer.dll
-C:\Users\yasni\OneDrive\Dokument\GitHub\RSS-podcast\PodcastUI\DataLayer\bin\Debug\DataLayer.pdb
-C:\Users\yasni\OneDrive\Dokument\GitHub\RSS-podcast\PodcastUI\DataLayer\obj\Debug\DataLayer.csprojAssemblyReference.cache
-C:\Users\yasni\OneDrive\Dokument\GitHub\RSS-podcast\PodcastUI\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
-C:\Users\yasni\OneDrive\Dokument\GitHub\RSS-podcast\PodcastUI\DataLayer\obj\Debug\DataLayer.dll
-C:\Users\yasni\OneDrive\Dokument\GitHub\RSS-podcast\PodcastUI\DataLayer\obj\Debug\DataLayer.pdb
 C:\Users\Jumaili\Documents\GitHub\RSS-podcast\PodcastUI\DataLayer\bin\Debug\DataLayer.dll
 C:\Users\Jumaili\Documents\GitHub\RSS-podcast\PodcastUI\DataLayer\bin\Debug\DataLayer.pdb
 C:\Users\Jumaili\Documents\GitHub\RSS-podcast\PodcastUI\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
 C:\Users\Jumaili\Documents\GitHub\RSS-podcast\PodcastUI\DataLayer\obj\Debug\DataLayer.dll
 C:\Users\Jumaili\Documents\GitHub\RSS-podcast\PodcastUI\DataLayer\obj\Debug\DataLayer.pdb
 C:\Users\Jumaili\Documents\GitHub\RSS-podcast\PodcastUI\DataLayer\obj\Debug\DataLayer.csprojAssemblyReference.cache
+C:\Users\yasni\OneDrive\Dokument\GitHub\RSS-podcast\PodcastUI\DataLayer\bin\Debug\DataLayer.dll
+C:\Users\yasni\OneDrive\Dokument\GitHub\RSS-podcast\PodcastUI\DataLayer\bin\Debug\DataLayer.pdb
+C:\Users\yasni\OneDrive\Dokument\GitHub\RSS-podcast\PodcastUI\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
+C:\Users\yasni\OneDrive\Dokument\GitHub\RSS-podcast\PodcastUI\DataLayer\obj\Debug\DataLayer.dll
+C:\Users\yasni\OneDrive\Dokument\GitHub\RSS-podcast\PodcastUI\DataLayer\obj\Debug\DataLayer.pdb
