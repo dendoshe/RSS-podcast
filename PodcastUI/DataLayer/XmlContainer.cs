@@ -21,7 +21,7 @@ namespace DataLayer {
                 Category = inputCategory,
                 RssLink = rssLink,
                 Updateintervall = frequency,
-                Path = localPath,
+                aPath = localPath,
                 Episodes = await ReadEpisodesFromRssLink(url)
             };
 
@@ -39,6 +39,13 @@ namespace DataLayer {
         public void AddToXmlContainer(string url, string rssLink, int updateinterval, string path, string name, string category) {
             XmlContainer _xmlcontainer = new XmlContainer();
             var result = _xmlcontainer.AddFeedInfo(url,rssLink, updateinterval, path, name, category);
+        }
+
+
+
+        public void AddToXmlContainer(string url, int updateinterval, string path, string name, string category) {
+            XmlContainer _xmlcontainer = new XmlContainer();
+            var result = _xmlcontainer.AddFeedInfo(url, updateinterval, path, name, category);
         }
 
 
@@ -74,7 +81,7 @@ namespace DataLayer {
         public void save(Feed feedObject) //steg 3 Det här är en metod för att spara Xml-filen. 
         {
             XmlSerializer serializer = new XmlSerializer(typeof(Feed));
-            using (StreamWriter writer = new StreamWriter(feedObject.Path)) {
+            using (StreamWriter writer = new StreamWriter(feedObject.aPath)) {
 
                 serializer.Serialize(writer, feedObject);
                 writer.Close();
@@ -103,7 +110,7 @@ namespace DataLayer {
             var getCatergories = GetAllCatergories();
 
             List<Feed> feeds = new List<Feed>();
-            //foreach (var item in getCatergories) {
+           
 
             var path = Directory.GetCurrentDirectory();
             var foldersTwo = Directory.GetDirectories(path);
@@ -126,7 +133,7 @@ namespace DataLayer {
 
                 }
             }
-            // }
+            
             return feeds;
         }
 
@@ -137,7 +144,7 @@ namespace DataLayer {
             foreach (var folder in folders) {
 
                 var info = new DirectoryInfo(folder);
-                categories.Add(new Category() { Title = info.Name, Path = folder, PodcastList = GetAllPodcastsInCategory(folder) });
+                categories.Add(new Category() { Title = info.Name, aPath = folder, PodcastList = GetAllPodcastsInCategory(folder) });
 
             }
             return categories;
