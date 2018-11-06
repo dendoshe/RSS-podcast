@@ -182,9 +182,9 @@ namespace PodcastUI {
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e) {
+        //private void Form1_Load(object sender, EventArgs e) {
 
-        }
+        //}
 
         private void btn_DeletePodcast_Click(object sender, EventArgs e) {
 
