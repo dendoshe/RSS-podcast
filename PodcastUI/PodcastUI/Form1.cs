@@ -202,8 +202,8 @@ namespace PodcastUI {
                 int newUpdateInterval = Convert.ToInt32(updateInterval);
                 var path = Directory.GetCurrentDirectory() + @"\" + categoryCb.Text + @"\" + tx_podcastName.Text + ".xml";
 
-            var path = Directory.GetCurrentDirectory() + @"\" + categoryCb.Text + @"\" + tx_podcastName.Text + ".xml";
-            _xmlcontainer.AddFeedInfo(tx_rssUrl.Text,tx_rssUrl.Text, newUpdateInterval, path, tx_podcastName.Text, categoryCb.Text);
+            var directoryPath = Directory.GetCurrentDirectory() + @"\" + categoryCb.Text + @"\" + tx_podcastName.Text + ".xml";
+            _xmlcontainer.AddFeedInfo(directoryPath, tx_rssUrl.Text, newUpdateInterval, path, tx_podcastName.Text, categoryCb.Text);
             FillPodcastInfoList();
 
             }

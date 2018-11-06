@@ -21,8 +21,8 @@ namespace DataLayer {
                 Category = inputCategory,
                 RssLink = rssLink,
                 Updateintervall = frequency,
-                aPath = localPath,
-                Episodes = await ReadEpisodesFromRssLink(url)
+                Path = localPath,
+                Episodes = await ReadEpisodesFromRssLink(rssLink)
             };
 
             save(feed);
@@ -42,12 +42,7 @@ namespace DataLayer {
         }
 
 
-
-        public void AddToXmlContainer(string url, int updateinterval, string path, string name, string category) {
-            XmlContainer _xmlcontainer = new XmlContainer();
-            var result = _xmlcontainer.AddFeedInfo(url, updateinterval, path, name, category);
-        }
-
+        
 
         public async Task<List<Episode>> ReadEpisodesFromRssLink(string rssLink) // steg 2, detta hämtar namn på enskilda feeds
         {
@@ -81,7 +76,7 @@ namespace DataLayer {
         public void save(Feed feedObject) //steg 3 Det här är en metod för att spara Xml-filen. 
         {
             XmlSerializer serializer = new XmlSerializer(typeof(Feed));
-            using (StreamWriter writer = new StreamWriter(feedObject.aPath)) {
+            using (StreamWriter writer = new StreamWriter(feedObject.Path)) {
 
                 serializer.Serialize(writer, feedObject);
                 writer.Close();
