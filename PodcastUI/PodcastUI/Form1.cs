@@ -12,14 +12,13 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LogicLayer;
-using System.Text.RegularExpressions;
+
+
 
 namespace PodcastUI {
 
 
-    public partial class Form1 : Form
-    {
+    public partial class Form1 : Form {
         private PodcastMani logicLayer = new PodcastMani(); //Här har vi skapat ett object av PostcastMani som ligger i LogicLayer. Den körs en gång vid uppstart.
         private XmlContainer _xmlcontainer = new XmlContainer();
         private List<Category> _categories;
@@ -29,21 +28,20 @@ namespace PodcastUI {
 
 
 
-        public Form1()
-        {
+        public Form1() {
             InitializeComponent();
             logicLayer = new PodcastMani();
             _updatecontainer = new Updatecontainer();
             _xmlcontainer = new XmlContainer();
             _categories = _xmlcontainer.GetAllCatergories();
+            _categories = new List<Category>();
             _feeds = _xmlcontainer.GetAllPoscastInCategory();
             FillCatergory();
             FillUpdateInterval();
-            FillPodcastInfoList();
+            //FillPodcastInfoList();
 
         }
-        private void FillUpdateInterval()
-        {
+        private void FillUpdateInterval() {
             cb_updateinterval.Items.Add(500);
             cb_updateinterval.Items.Add(550);
             cb_updateinterval.Items.Add(1000);
@@ -51,8 +49,7 @@ namespace PodcastUI {
             cb_updateinterval.Items.Add(2000);
         }
 
-        private void FillCatergory()
-        {
+        private void FillCatergory() {
             ListCategories.Items.Clear();
             categoryCb.Items.Clear();
 
@@ -60,8 +57,7 @@ namespace PodcastUI {
             var listOfcategories = _xmlcontainer.GetAllCatergories();
             _categories = listOfcategories;
 
-            foreach (var category in _categories)
-            {
+            foreach (var category in _categories) {
 
                 ListCategories.Items.Add(category.Title);
                 categoryCb.Items.Add(category.Title);
@@ -69,17 +65,14 @@ namespace PodcastUI {
             }
         }
 
-        private void FillPodcastInfoList()
-        {
+        private void FillPodcastInfoList() {
             listView1.Items.Clear();
             var listOfcategories = _xmlcontainer.GetAllCatergories();
             _categories = listOfcategories;
-            foreach (var podcast in _categories)
-            {
+            foreach (var podcast in _categories) {
 
                 var titleOfCategory = podcast.Title;
-                foreach (var podcastFile in podcast.PodcastList)
-                {
+                foreach (var podcastFile in podcast.PodcastList) {
 
                     _updatecontainer.newUpdate(podcastFile.Title, titleOfCategory, podcastFile, podcastFile.RssLink);
                     var totalEpisodes = podcastFile.Episodes.Count().ToString();
@@ -91,31 +84,25 @@ namespace PodcastUI {
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+        private void label1_Click(object sender, EventArgs e) {
 
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e) {
 
             var podcastItem = listView1.SelectedItems;
             listAvsnitt.Clear();
 
-            if (listView1.SelectedItems.Count == 1)
-            {
+            if (listView1.SelectedItems.Count == 1) {
 
                 var firstSelectedItem = listView1.SelectedItems[0].Text;
                 podname = firstSelectedItem;
 
-                foreach (var item in _feeds)
-                {
+                foreach (var item in _feeds) {
 
-                    if (item.Title.Equals(firstSelectedItem))
-                    {
+                    if (item.Title.Equals(firstSelectedItem)) {
 
-                        foreach (var episodeList in item.Episodes)
-                        {
+                        foreach (var episodeList in item.Episodes) {
 
                             listAvsnitt.Items.Add(episodeList.Title);
                         }
@@ -128,8 +115,7 @@ namespace PodcastUI {
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
+        private void button5_Click(object sender, EventArgs e) {
 
 
         }
@@ -142,10 +128,8 @@ namespace PodcastUI {
             Validator checkIfEmpty = new Validator(skrivKategori, "Kategori", " är tomt. Försök igen");
             //Category aCategory = new Category();
 
-            try
-            {
-                while (checkIfEmpty.isFieldEmpty() == false)
-                {
+            try {
+                while (checkIfEmpty.isFieldEmpty() == false) {
                     string newDir = skrivKategori.Text;
                     logicLayer.Add(newDir, "");
 
@@ -154,9 +138,7 @@ namespace PodcastUI {
                     break;
 
                 }
-            }
-            catch (Exception)
-            {
+            } catch (Exception) {
 
                 throw;
             }
@@ -186,6 +168,32 @@ namespace PodcastUI {
         }
 
         private void ListCategories_SelectedIndexChanged(object sender, EventArgs e) {
+            listView1.Items.Clear();
+            listAvsnitt.Items.Clear();
+            listdescrip.Items.Clear();
+
+            var categoryName = ListCategories.SelectedItem;
+
+            foreach (var podcast in _categories) {
+
+                if (podcast.Title.Contains(categoryName.ToString())) 
+                {
+
+                    var titleOfCategory = podcast.Title;
+                    foreach (var podcastFile in podcast.PodcastList) {
+
+                        _updatecontainer.newUpdate(podcastFile.Title, titleOfCategory, podcastFile, podcastFile.RssLink);
+                        var totalEpisodes = podcastFile.Episodes.Count().ToString();
+                        string[] row = { podcastFile.Title, totalEpisodes, podcastFile.Updateintervall.ToString(), titleOfCategory };
+
+                        ListViewItem lvt = new ListViewItem(row);
+                        listView1.Items.Add(lvt);
+                    }
+
+                }
+
+            }
+          
 
         }
 
@@ -196,20 +204,16 @@ namespace PodcastUI {
             Validator checkIfCategoryEmtpty = new Validator(categoryCb, "Välj en kategori till din nya podcast");
             //Feed newFeed = new Feed();
 
-            if(!checkIfBoxEmpty.isBoxEmpty() && !checkIfURLEmpty.isFieldEmpty() && !checkIfNameEmpty.isFieldEmpty() && !checkIfCategoryEmtpty.isBoxEmpty() && tx_rssUrl.Text.Contains("rss"))
-            {
+            if (!checkIfBoxEmpty.isBoxEmpty() && !checkIfURLEmpty.isFieldEmpty() && !checkIfNameEmpty.isFieldEmpty() && !checkIfCategoryEmtpty.isBoxEmpty() && tx_rssUrl.Text.Contains("rss")) {
                 var updateInterval = cb_updateinterval.Text;
                 int newUpdateInterval = Convert.ToInt32(updateInterval);
                 var path = Directory.GetCurrentDirectory() + @"\" + categoryCb.Text + @"\" + tx_podcastName.Text + ".xml";
 
-            var directoryPath = Directory.GetCurrentDirectory() + @"\" + categoryCb.Text + @"\" + tx_podcastName.Text + ".xml";
-            _xmlcontainer.AddFeedInfo(directoryPath, tx_rssUrl.Text, newUpdateInterval, path, tx_podcastName.Text, categoryCb.Text);
-            FillPodcastInfoList();
+                var directoryPath = Directory.GetCurrentDirectory() + @"\" + categoryCb.Text + @"\" + tx_podcastName.Text + ".xml";
+                _xmlcontainer.AddFeedInfo(directoryPath, tx_rssUrl.Text, newUpdateInterval, path, tx_podcastName.Text, categoryCb.Text);
+                FillPodcastInfoList();
 
-            }
-
-            else
-            {
+            } else {
                 MessageBox.Show("Någonting gick fel. Kanske är den URL du angav inte giltig?");
             }
 
@@ -247,19 +251,16 @@ namespace PodcastUI {
                 logicLayer.Delete(selectedFeed.SubItems[0].Text, selectedFeed.SubItems[3].Text);
                 FillPodcastInfoList();
             }
-            
+
 
 
         }
 
-        private void btnAndra_Click(object sender, EventArgs e)
-        {
+        private void btnAndra_Click(object sender, EventArgs e) {
             Validator Validation = new Validator(skrivKategori, "", "Markera kategorin som du vill ändra och skriv det nya namnet i fältet");
 
-            try
-            {
-                while (Validation.isFieldEmpty() == false)
-                {
+            try {
+                while (Validation.isFieldEmpty() == false) {
                     string changeDir = skrivKategori.Text;
                     string path = ListCategories.SelectedItem.ToString();
                     logicLayer.Edit(changeDir, path);
@@ -267,17 +268,44 @@ namespace PodcastUI {
                     FillPodcastInfoList();
 
                 }
-            }
-            catch (Exception ex)
-            {
+            } catch (Exception ex) {
 
-                
-                throw ex;
-                string hej = "";
-               
+                Console.WriteLine("An error occurred: '{0}'", ex);
+
+
             }
+
+
+
+        }
+
+        private void bn_changeCat_Click(object sender, EventArgs e) {
+
+          //fixa validering
+
+            var thirdSelectedItem = listView1.SelectedItems[0];
+            var selectedPodCategory = thirdSelectedItem.SubItems[3];
+
+            logicLayer.changePodcastLocation(selectedPodCategory.Text,categoryCb.Text,thirdSelectedItem.Text, categoryCb);
+
+            listView1.Items.Clear();
+            listAvsnitt.Items.Clear();
+            listdescrip.Items.Clear();
+            _categories = _xmlcontainer.GetAllCatergories();
+            FillCatergory();
+
+        }
+
+        private void bn_changeFrek_Click(object sender, EventArgs e) {
+           //var podcast = listView1.SelectedItems[0];
+           // Feed myFeed = new Feed();
+           // _xmlcontainer.AddFeedInfo()
+           // myFeed.Title = podcast.Text;
+           // var castPodcast = "hej";
             
+        }
 
+        private void bn_changeName_Click(object sender, EventArgs e) {
 
         }
     }

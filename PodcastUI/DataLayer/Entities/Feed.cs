@@ -16,19 +16,11 @@ namespace PodcastUI.Models
         public int Updateintervall { get; set; } // Här har vi skapat en node som innehåller updateintervall.
         public List<Episode> Episodes { get; set; } // Här har vi skapat en lista med Episode obejct. Den kommer bestå av avsnitt. Detta är en node.
 
-   
-
-        //public void Add(string theCategory, string selectedFeed)
-        //{
-
-        //    var path = Directory.GetCurrentDirectory() + @"\" + theCategory + @"\" + selectedFeed + ".xml";
-
-        //}
 
 
-        public void Edit(string newLocation, string oldLocation)
-        {
-
+        public override string ToString() {
+            return Title;
         }
+
     }
 }

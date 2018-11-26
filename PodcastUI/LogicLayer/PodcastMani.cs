@@ -88,5 +88,12 @@ namespace LogicLayer
             
 
         }
+
+        public void changePodcastLocation(string oldCategory, string newCategory, string name, ComboBox categoryCombobox) {
+            string path1 = Directory.GetCurrentDirectory() + @"\" + oldCategory + @"\" + name + @".xml";
+            string path2 = Directory.GetCurrentDirectory() + @"\" + newCategory + @"\" + name + @".xml";
+
+            File.Move(path1, path2);
+        }
     }
 }

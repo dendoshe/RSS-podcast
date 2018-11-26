@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Feed xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Title>qrjqwp</Title>
-  <Category>asoa</Category>
+  <Title>ffff</Title>
+  <Category>os</Category>
   <RssLink>http://tackforkaffet.libsyn.com/rss</RssLink>
-  <Path>C:\Users\yasni\OneDrive\Dokument\GitHub\RSS-podcast\PodcastUI\PodcastUI\bin\Debug\asoa\qrjqwp.xml</Path>
-  <Updateintervall>1000</Updateintervall>
+  <Path>C:\Users\yasni\OneDrive\Dokument\GitHub\RSS-podcast\PodcastUI\PodcastUI\bin\Debug\os\ffff.xml</Path>
+  <Updateintervall>2000</Updateintervall>
   <Episodes>
     <Episode>
+      <Title>TFK.402 – First Class.</Title>
+      <Description>&lt;p&gt;Denna vecka samtalas det om asiater, inflyttningspresenter och telefonsamtal. MYCKET nöje!&lt;/p&gt; &lt;p&gt;&lt;a href="http://tackforkaffet.se/kop-premium/" target="_blank" rel="noopener"&gt;Prova Premium i 14 dagar HELT FRITT här!&lt;/a&gt;&lt;/p&gt;</Description>
+    </Episode>
+    <Episode>
+      <Title>TFK.401 – Spacey.</Title>
+      <Description>&lt;p&gt;Denna vecka samtalas det om Kevin Spacey, årets julklapp och Island. MYCKET nöje!&lt;/p&gt; &lt;p&gt;&lt;a href="http://tackforkaffet.se/kop-premium/" target="_blank" rel="noopener"&gt;Prova Premium i 14 dagar HELT FRITT här!&lt;/a&gt;&lt;/p&gt;</Description>
+    </Episode>
+    <Episode>
+      <Title>TFK.400 – Skolskjutningen.</Title>
+      <Description>&lt;p&gt;Denna vecka samtalas det om skolskjutningar, trender och vi firar 400 avsnitt tillsammans med Kicken, Gry Forsell, Anders Timell, Harald Treutiger, Alex Schulman, Mange Schmidt, Nemo Hedén, Mikael Hollsten och Joakim Lundell! MYCKET nöje!&lt;/p&gt; &lt;p&gt;&lt;a href="http://tackforkaffet.se/kop-premium/" target="_blank" rel="noopener"&gt;Prova Premium i 14 dagar HELT FRITT här!&lt;/a&gt;&lt;/p&gt;</Description>
+    </Episode>
+    <Episode>
       <Title>TFK.399 – Bilfärden.</Title>
-      <Description>&lt;p&gt;Denna vecka samtalas det om PeewDiePie, Choking Challange och miljonprojekt. MYCKET nöje!&lt;/p&gt; &lt;p&gt;&lt;a href="http://tackforkaffet.se/kop-premium/" target="_blank" rel="noopener"&gt;Prova Premium i 14 dagar HELT FRITT här!&lt;/a&gt;&lt;/p&gt;</Description>
+      <Description>&lt;p&gt;Denna vecka samtalas det om PewDiePie, Choking Challenge och miljonprojekt. MYCKET nöje!&lt;/p&gt; &lt;p&gt;&lt;a href="http://tackforkaffet.se/kop-premium/" target="_blank" rel="noopener"&gt;Prova Premium i 14 dagar HELT FRITT här!&lt;/a&gt;&lt;/p&gt;</Description>
     </Episode>
     <Episode>
       <Title>TFK.398 – Good Deeds.</Title>
