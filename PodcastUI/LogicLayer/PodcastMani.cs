@@ -79,14 +79,9 @@ namespace LogicLayer
         }
 
 
-
-
         public void editFeed(string URL, string folderName, int updateInterval, string category)
         {
-
             string path = Path.Combine(Directory.GetCurrentDirectory(), folderName, URL + @".xml");
-            
-
         }
 
         public void changePodcastLocation(string oldCategory, string newCategory, string name, ComboBox categoryCombobox) {
@@ -94,6 +89,23 @@ namespace LogicLayer
             string path2 = Directory.GetCurrentDirectory() + @"\" + newCategory + @"\" + name + @".xml";
 
             File.Move(path1, path2);
+        }
+
+        public void changePodcastUrl(string url, string nyUrl)
+        {
+            XmlContainer xmlC = new XmlContainer();
+
+            var allaFeedRssLinks = xmlC.GetRssFromPodcast();
+
+            foreach (var feed in allaFeedRssLinks)
+            {
+                if (feed.Equals(url))
+                {
+                    
+                }
+            }
+
+
         }
     }
 }

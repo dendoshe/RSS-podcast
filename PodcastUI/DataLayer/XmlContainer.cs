@@ -47,15 +47,6 @@ namespace DataLayer {
         public async Task<List<Episode>> ReadEpisodesFromRssLink(string rssLink) // steg 2, detta hämtar namn på enskilda feeds
         {
 
-            //await Task.Factory.StartNew(() => 
-            //{
-            //    using (XmlReader reader = XmlReader.Create(rssLink)) 
-            //    {
-            //        SyndicationFeed feed = SyndicationFeed.Load(reader);
-            //    }
-
-
-            //});
             XmlReader reader = XmlReader.Create(rssLink);
             SyndicationFeed feed = SyndicationFeed.Load(reader);
             List<Episode> episodeList = new List<Episode>();
@@ -101,8 +92,8 @@ namespace DataLayer {
             return feeds;
         }
 
-        public List<Feed> GetAllPoscastInCategory() {
-            var getCatergories = GetAllCatergories();
+        public List<Feed> GetAllPodcastInCategories() {
+            var getCategories = GetAllCategories();
 
             List<Feed> feeds = new List<Feed>();
            
@@ -111,7 +102,7 @@ namespace DataLayer {
             var foldersTwo = Directory.GetDirectories(path);
 
 
-            foreach (var anitem in getCatergories) {
+            foreach (var anitem in getCategories) {
 
                 var getfiles = Directory.GetFiles(anitem.Title);
                 var info = new FileInfo(anitem.Title);
@@ -123,16 +114,13 @@ namespace DataLayer {
 
 
                     }
-
-
-
                 }
             }
             
             return feeds;
         }
 
-        public List<Category> GetAllCatergories() {
+        public List<Category> GetAllCategories() {
             var path = Directory.GetCurrentDirectory();
             var folders = Directory.GetDirectories(path);
             List<Category> categories = new List<Category>();
@@ -143,6 +131,20 @@ namespace DataLayer {
 
             }
             return categories;
+
+        }
+
+        public List<string> GetRssFromPodcast()
+        {
+            var AllFeeds = GetAllPodcastInCategories();
+            List<string> RssLinks = new List<string>();
+
+            foreach (Feed feed in AllFeeds)
+            {
+                RssLinks.Add(feed.RssLink);
+            }
+
+            return RssLinks;
 
         }
 

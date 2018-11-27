@@ -33,9 +33,9 @@ namespace PodcastUI {
             logicLayer = new PodcastMani();
             _updatecontainer = new Updatecontainer();
             _xmlcontainer = new XmlContainer();
-            _categories = _xmlcontainer.GetAllCatergories();
+            _categories = _xmlcontainer.GetAllCategories();
             _categories = new List<Category>();
-            _feeds = _xmlcontainer.GetAllPoscastInCategory();
+            _feeds = _xmlcontainer.GetAllPodcastInCategories();
             FillCatergory();
             FillUpdateInterval();
             //FillPodcastInfoList();
@@ -54,7 +54,7 @@ namespace PodcastUI {
             categoryCb.Items.Clear();
 
 
-            var listOfcategories = _xmlcontainer.GetAllCatergories();
+            var listOfcategories = _xmlcontainer.GetAllCategories();
             _categories = listOfcategories;
 
             foreach (var category in _categories) {
@@ -67,7 +67,7 @@ namespace PodcastUI {
 
         private void FillPodcastInfoList() {
             listView1.Items.Clear();
-            var listOfcategories = _xmlcontainer.GetAllCatergories();
+            var listOfcategories = _xmlcontainer.GetAllCategories();
             _categories = listOfcategories;
             foreach (var podcast in _categories) {
 
@@ -145,21 +145,28 @@ namespace PodcastUI {
         }
 
         private void button6_Click(object sender, EventArgs e) {
-            //Category selectedCategory = new Category();
 
 
-            if (ListCategories.SelectedIndex != -1) {
+            try
+            {
+                if (ListCategories.SelectedIndex != -1)
+                {
 
-                string genreFolder = ListCategories.SelectedItem.ToString();
-                logicLayer.DeleteCategory(genreFolder, "");
-                ListCategories.Items.RemoveAt(ListCategories.SelectedIndex); //denna metod tar oavsett vad alltid bort det som är valt i kategori boxen
-                FillCatergory();
-                FillPodcastInfoList();
-
-
-
+                    string genreFolder = ListCategories.SelectedItem.ToString();
+                    logicLayer.DeleteCategory(genreFolder, "");
+                    ListCategories.Items.RemoveAt(ListCategories.SelectedIndex); //denna metod tar oavsett vad alltid bort det som är valt i kategori boxen
+                    FillCatergory();
+                    FillPodcastInfoList();
+                }
 
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
         }
 
         private void listView3_SelectedIndexChanged(object sender, EventArgs e) {
@@ -243,14 +250,26 @@ namespace PodcastUI {
 
         private void btn_DeletePodcast_Click(object sender, EventArgs e) {
 
-            //fixa validering så det kommer upp ett felmeddelande om ingen podcast är vald som ska raderas
-            //Feed aFeed = new Feed();
-            if (listView1.SelectedItems.Count == 1) {
+            try
+            {
+                if (listView1.SelectedItems.Count == 1)
+                {
 
-                var selectedFeed = listView1.SelectedItems[0];
-                logicLayer.Delete(selectedFeed.SubItems[0].Text, selectedFeed.SubItems[3].Text);
-                FillPodcastInfoList();
+                    var selectedFeed = listView1.SelectedItems[0];
+                    logicLayer.Delete(selectedFeed.SubItems[0].Text, selectedFeed.SubItems[3].Text);
+                    FillPodcastInfoList();
+                }
+                else MessageBox.Show("Markera en podcast.");
+
             }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Någonting gick fel.");
+            }
+
+
+
 
 
 
@@ -268,11 +287,8 @@ namespace PodcastUI {
                     FillPodcastInfoList();
 
                 }
-            } catch (Exception ex) {
-
-                Console.WriteLine("An error occurred: '{0}'", ex);
-
-
+            } catch (Exception ) {
+                throw;
             }
 
 
@@ -281,18 +297,25 @@ namespace PodcastUI {
 
         private void bn_changeCat_Click(object sender, EventArgs e) {
 
-          //fixa validering
 
-            var thirdSelectedItem = listView1.SelectedItems[0];
-            var selectedPodCategory = thirdSelectedItem.SubItems[3];
+            try
+            {
+                var thirdSelectedItem = listView1.SelectedItems[0];
+                var selectedPodCategory = thirdSelectedItem.SubItems[3];
 
-            logicLayer.changePodcastLocation(selectedPodCategory.Text,categoryCb.Text,thirdSelectedItem.Text, categoryCb);
+                logicLayer.changePodcastLocation(selectedPodCategory.Text, categoryCb.Text, thirdSelectedItem.Text, categoryCb);
 
-            listView1.Items.Clear();
-            listAvsnitt.Items.Clear();
-            listdescrip.Items.Clear();
-            _categories = _xmlcontainer.GetAllCatergories();
-            FillCatergory();
+                listView1.Items.Clear();
+                listAvsnitt.Items.Clear();
+                listdescrip.Items.Clear();
+                _categories = _xmlcontainer.GetAllCategories();
+                FillCatergory();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Se till att ha markerat podcasten som du vill flytta samt valt ny kategori.");
+            }
+
 
         }
 
