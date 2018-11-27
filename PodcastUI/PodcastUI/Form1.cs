@@ -287,8 +287,11 @@ namespace PodcastUI {
                     FillPodcastInfoList();
 
                 }
-            } catch (Exception ) {
-                throw;
+            } catch (Exception ex) {
+
+                Console.WriteLine("An error occurred: '{0}'", ex);
+
+
             }
 
 
