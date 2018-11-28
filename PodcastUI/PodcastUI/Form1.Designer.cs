@@ -261,7 +261,7 @@ namespace PodcastUI
             // 
             this.listdescrip.FormattingEnabled = true;
             this.listdescrip.ItemHeight = 20;
-            this.listdescrip.Location = new System.Drawing.Point(652, 328);
+            this.listdescrip.Location = new System.Drawing.Point(603, 360);
             this.listdescrip.Name = "listdescrip";
             this.listdescrip.Size = new System.Drawing.Size(454, 144);
             this.listdescrip.TabIndex = 22;

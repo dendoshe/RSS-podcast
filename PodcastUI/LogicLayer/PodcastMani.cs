@@ -15,15 +15,28 @@ namespace LogicLayer
 
 
         public void Delete(string theCategory, string selectedFeed) {
-            string path = Path.Combine(Directory.GetCurrentDirectory(), selectedFeed, theCategory + @".xml");
 
-            DialogResult dialogResult = MessageBox.Show("Är du säker på att du vill ta bort podcasten " + selectedFeed + " permanent?", "Varning", MessageBoxButtons.YesNo);
+            try
+            {
+                string path = Path.Combine(Directory.GetCurrentDirectory(), selectedFeed, theCategory + @".xml");
 
-            if (dialogResult == DialogResult.Yes) {
-                File.Delete(path);
-            } else if (dialogResult == DialogResult.No) {
+                DialogResult dialogResult = MessageBox.Show("Är du säker på att du vill ta bort podcasten " + selectedFeed + " permanent?", "Varning", MessageBoxButtons.YesNo);
 
+                if (dialogResult == DialogResult.Yes)
+                {
+                    File.Delete(path);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
 

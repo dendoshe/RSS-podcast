@@ -146,14 +146,14 @@ namespace PodcastUI {
 
         private void button6_Click(object sender, EventArgs e) {
 
+            PodcastMani mani = new PodcastMani();
 
             try
             {
-                if (ListCategories.SelectedIndex != -1)
+                if (ListCategories.SelectedIndex > 0)
                 {
-
                     string genreFolder = ListCategories.SelectedItem.ToString();
-                    logicLayer.DeleteCategory(genreFolder, "");
+                    mani.DeleteCategory(genreFolder, "");
                     ListCategories.Items.RemoveAt(ListCategories.SelectedIndex); //denna metod tar oavsett vad alltid bort det som är valt i kategori boxen
                     FillCatergory();
                     FillPodcastInfoList();
@@ -179,27 +179,39 @@ namespace PodcastUI {
             listAvsnitt.Items.Clear();
             listdescrip.Items.Clear();
 
-            var categoryName = ListCategories.SelectedItem;
-
-            foreach (var podcast in _categories) {
-
-                if (podcast.Title.Contains(categoryName.ToString())) 
+            try
+            {
+                var categoryName = ListCategories.SelectedItem;
+                foreach (var podcast in _categories)
                 {
 
-                    var titleOfCategory = podcast.Title;
-                    foreach (var podcastFile in podcast.PodcastList) {
+                    if (podcast.Title.Contains(categoryName.ToString()))
+                    {
 
-                        _updatecontainer.newUpdate(podcastFile.Title, titleOfCategory, podcastFile, podcastFile.RssLink);
-                        var totalEpisodes = podcastFile.Episodes.Count().ToString();
-                        string[] row = { podcastFile.Title, totalEpisodes, podcastFile.Updateintervall.ToString(), titleOfCategory };
+                        var titleOfCategory = podcast.Title;
+                        foreach (var podcastFile in podcast.PodcastList)
+                        {
 
-                        ListViewItem lvt = new ListViewItem(row);
-                        listView1.Items.Add(lvt);
+                            _updatecontainer.newUpdate(podcastFile.Title, titleOfCategory, podcastFile, podcastFile.RssLink);
+                            var totalEpisodes = podcastFile.Episodes.Count().ToString();
+                            string[] row = { podcastFile.Title, totalEpisodes, podcastFile.Updateintervall.ToString(), titleOfCategory };
+
+                            ListViewItem lvt = new ListViewItem(row);
+                            listView1.Items.Add(lvt);
+                        }
+
                     }
 
                 }
-
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
           
 
         }
@@ -316,7 +328,7 @@ namespace PodcastUI {
             }
             catch (Exception)
             {
-                MessageBox.Show("Se till att ha markerat podcasten som du vill flytta samt valt ny kategori.");
+                MessageBox.Show("Se till att ha markerat podcasten som du vill flytta samt valt ny kategori i dropdown listan.");
             }
 
 

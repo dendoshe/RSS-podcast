@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Feed xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Title>Schulman show</Title>
+  <Category>Humor</Category>
+  <RssLink>http://schulmanshow.libsyn.com/rss</RssLink>
+  <Path>C:\Users\Diana Jumaili\Documents\GitHub\RSS-podcast\PodcastUI\PodcastUI\bin\Debug\Humor\Schulman show.xml</Path>
+  <Updateintervall>1000</Updateintervall>
+  <Episodes>
+    <Episode>
+      <Title>22. Lena Endre</Title>
+      <Description>&lt;p&gt;Skådespelaren Lena Endre gästar.&lt;/p&gt;</Description>
+    </Episode>
+    <Episode>
+      <Title>21. Bert Karlsson</Title>
+      <Description>&lt;p&gt;I säsongspremiären av Schulman Show gästar Bert Karlsson.&lt;/p&gt;</Description>
+    </Episode>
+    <Episode>
+      <Title>20. Annie Lööf</Title>
+      <Description>&lt;p&gt;Säsongsavslutning&lt;/p&gt;</Description>
+    </Episode>
+    <Episode>
+      <Title>19. Peder Fredricson</Title>
+      <Description>&lt;p&gt;Succéprogrammet Schulman Show gästas i dag av mästerryttaren Peder Fredricson.&lt;/p&gt;</Description>
+    </Episode>
+    <Episode>
+      <Title>18. Erik "Jerka" Johansson</Title>
+      <Description>&lt;p&gt;Jerka Johansson är gäst i Schulman Show!&lt;/p&gt;</Description>
+    </Episode>
+    <Episode>
+      <Title>17. Krister Henriksson</Title>
+      <Description>&lt;p&gt;Skådespelaren Krister Henriksson gästar Schulman Show&lt;/p&gt;</Description>
+    </Episode>
+    <Episode>
+      <Title>16. Fredrik Skavlan</Title>
+      <Description>&lt;p&gt;Fredrik Skavlan är gäst i Schulman Show&lt;/p&gt;</Description>
+    </Episode>
+    <Episode>
+      <Title>15. Ebba Busch Thor</Title>
+      <Description>&lt;p&gt;Den här gången är det Ebba Busch Thor som gästar Schulman Show!&lt;/p&gt;</Description>
+    </Episode>
+    <Episode>
+      <Title>14. Alexander Bard</Title>
+      <Description>&lt;p&gt;Schulman Show med Alexander Bard.&lt;/p&gt;</Description>
+    </Episode>
+    <Episode>
+      <Title>13. Isabella Löwengrip</Title>
+      <Description>&lt;p&gt;Gäst i veckans Schulman Show är Isabella Löwengrip!&lt;/p&gt;</Description>
+    </Episode>
+    <Episode>
+      <Title>12. Bianca Ingrosso</Title>
+      <Description>&lt;p&gt;Schulman Show med Alex Schulman. Gäst i dagens avsnitt är Bianca Ingrosso.&lt;/p&gt;</Description>
+    </Episode>
+    <Episode>
+      <Title>11. Markus Aujalay</Title>
+      <Description>&lt;p&gt;Där är den! Andra säsongen av succéprogrammet Schulman Show. Gäst är mästerkocken Markus Aujalay.&lt;/p&gt;</Description>
+    </Episode>
+    <Episode>
+      <Title>10. Sigge Eklund</Title>
+      <Description>&lt;p&gt;Sigge Eklund är gäst i detta specialavsnitt av Schulman Show.&lt;/p&gt;</Description>
+    </Episode>
+    <Episode>
+      <Title>9. Ola Rapace</Title>
+      <Description>&lt;p&gt;Skådespelaren och musikern Ola Rapace är gäst i veckans avsnitt av Schulman Show&lt;/p&gt;</Description>
+    </Episode>
+    <Episode>
+      <Title>8. Zara Larsson</Title>
+      <Description>&lt;p&gt;Gäst i veckans Schulman Show är Zara Larsson&lt;/p&gt;</Description>
+    </Episode>
+    <Episode>
+      <Title>7. Felix Herngren</Title>
+      <Description>&lt;p&gt;Gäst i veckans Schulman Show är Felix Herngren.&lt;/p&gt; &lt;p&gt; &lt;/p&gt; &lt;p&gt;&lt;a href= "https://www.adlibris.com/se/bok/kalla-mig-galen-berattelser-fran-psyksverige-9789170379727"&gt; Köp Christian Dahlströms bok "Kalla mig galen" här!&lt;/a&gt;&lt;/p&gt; &lt;p&gt; &lt;/p&gt; &lt;p&gt; &lt;/p&gt;</Description>
+    </Episode>
+    <Episode>
+      <Title>6. David Lagercrantz</Title>
+      <Description>&lt;p&gt;Gäst i Schulman Show är David Lagercrantz!&lt;/p&gt; &lt;p&gt; &lt;/p&gt; &lt;p&gt;&lt;a href= "https://www.adlibris.com/se/sok?q=kl%C3%A4+dig+f%C3%B6r+framg%C3%A5ng+med+oscar+arrsj%C3%B6"&gt; Köp boken "Klä dig för framgång" här!&lt;/a&gt;&lt;/p&gt;</Description>
+    </Episode>
+    <Episode>
+      <Title>5. Marie Göranzon</Title>
+      <Description>&lt;p&gt;I mellanakten av säsongen gästas Alex av skådespelaren Marie Göranzon&lt;/p&gt; &lt;p&gt; &lt;/p&gt; &lt;p&gt;&lt;a href= "https://www.adlibris.com/se/sok?q=letto+frontlight+2"&gt;Här kan du köpa Adlibris läsplatta Letto Frontlight 2&lt;/a&gt;&lt;/p&gt;</Description>
+    </Episode>
+    <Episode>
+      <Title>4. Lars Lerin</Title>
+      <Description>&lt;p&gt;Konstnären, författaren och tv-personligheten Lars Lerin är gäst i Schulman Show&lt;/p&gt; &lt;p&gt; &lt;/p&gt; &lt;p&gt;&lt;a href= "https://www.adlibris.com/se/bok/mitt-hjartas-oro-9789113078939?campaignId=a92ddf79-5e97-4308-8d84-307190d67007" target="_blank" rel="noopener"&gt;Köp Malou von Sievers bok "Mitt hjärtas oro" här!&lt;/a&gt;&lt;/p&gt;</Description>
+    </Episode>
+    <Episode>
+      <Title>3. Jan Guillou</Title>
+      <Description>&lt;p&gt;Veckans gäst i Schulman Show är Jan Guillou&lt;/p&gt;</Description>
+    </Episode>
+    <Episode>
+      <Title>2. Little Jinder</Title>
+      <Description>&lt;p&gt;Artisten, låtskrivaren och producenten Little Jinder gästar Schulman Show&lt;/p&gt;</Description>
+    </Episode>
+    <Episode>
+      <Title>1. Filip Hammar</Title>
+      <Description>&lt;p&gt;I premiäravsnittet av Schulman Show gästas Alex Schulman av Filip Hammar&lt;/p&gt;</Description>
+    </Episode>
+  </Episodes>
+</Feed>
